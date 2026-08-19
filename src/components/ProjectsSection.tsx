@@ -181,36 +181,17 @@ function ProjectLinkIcon({ link }: { link: ProjectLink }) {
 
 const projects: Project[] = [
   {
-    name: 'Moneyball',
-    icon: moneyballIcon,
-    visualType: 'baseball',
-    summary:
-      'Full-stack web app that processes MLB pitch-level data through Jupyter Notebooks, CSV parsing, and the Statcast API to surface advanced baseball analytics.\nPlease note: the free Render instance can take multiple minutes to spin up the Spring Boot server.',
-    proof: [
-      'Built a full-stack web app from a custom Jupyter Notebook to display advanced MLB analytics.',
-      'Processed .csv files with 120+ fields with 500+ records to evaluate baseball games at a pitch level.',
-      'Worked with the official MLB and Statcast APIs to generate easily digestible insights based on game events.',
-    ],
-    stack: ['Kotlin', 'React', 'Spring Boot', 'TypeScript', 'GitHub', 'Render'],
-    links: [
-      { label: 'View website', href: 'https://aquinnmo.github.io/moneyball' },
-      { label: 'Frontend Repository', href: 'https://github.com/Aquinnmo/moneyball' },
-      { label: 'Backend Repository', href: 'https://github.com/Aquinnmo/moneyball-spring' },
-    ],
-  },
-  {
-    name: 'Pump Pal',
+    name: 'Timber',
     icon: pumpPalIcon,
     visualType: 'dumbbell',
     summary:
-      'Mobile-first workout tracker focused on balanced training, injury reduction, and AI-powered analytics.',
+      'Mobile-first workout app currently being submitted to the Apple App Store and Google Play Store.',
     proof: [
-      'Developed a workout tracker to minimize injuries and balance workouts using personalized workout metrics.',
-      'Leveraged the Gemini API to analyze workout history and generate insights into the muscles you are working.',
+      'Architected the app around minimizing user interaction, with workouts that auto-fill dynamically.',
+      'Made user data portable and consent-gated: data export on demand, with AI and social features exclusively opt-in.',
       'Implemented a simple and easy-to-use interface to make data digestible and visually appealing.',
-      'Used Firebase to store workout data as a NoSQL database allows for workout flexibility.',
     ],
-    stack: ['React Native', 'Expo', 'Firebase', 'Gemini API', 'Vercel'],
+    stack: ['React Native', 'Expo', 'Firebase', 'TypeScript', 'Vercel'],
     links: [
       { label: 'Web Preview', href: 'https://pump.adam-montgomery.ca' },
       {
@@ -218,6 +199,24 @@ const projects: Project[] = [
         href: 'https://expo.dev/accounts/aquinnmo/projects/pump-pal/builds/f3f89684-df21-4f9c-af2c-ad3c53cdbd48',
       },
       { label: 'Repository', href: 'https://github.com/Aquinnmo/pump-pal' },
+    ],
+  },
+  {
+    name: 'Moneyball',
+    icon: moneyballIcon,
+    visualType: 'baseball',
+    summary:
+      'Simplifies complex MLB and Statcast analytics into plain-English behaviours instead of overwhelming users with KPIs.',
+    proof: [
+      'Originally built as a Jupyter Notebook, then expanded into a self-hosted Spring Boot service.',
+      'Processed .csv files with 120+ fields and 500+ records to evaluate baseball games at a pitch-by-pitch level.',
+      'Set up a daily scheduled task to collect season data, aggregating player and team overviews for expected leaderboards and standings.',
+    ],
+    stack: ['Kotlin', 'React', 'Spring Boot', 'TypeScript', 'GitHub', 'Render'],
+    links: [
+      { label: 'View website', href: 'https://aquinnmo.github.io/moneyball' },
+      { label: 'Frontend Repository', href: 'https://github.com/Aquinnmo/moneyball' },
+      { label: 'Backend Repository', href: 'https://github.com/Aquinnmo/moneyball-spring' },
     ],
   },
   {

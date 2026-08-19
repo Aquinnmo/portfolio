@@ -4,17 +4,17 @@ import './styling/layout.css'
 
 const experiences = [
   {
-    role: 'Software Engineering Intern',
+    role: 'Software Engineering Co-op',
     company: 'SPS Commerce',
-    dates: 'May 2026 - Present',
+    dates: 'May 2026 - Aug 2026',
     summary:
-      'I work on production software automation for the world\'s largest EDI network, routing billions of documents a year.',
+      'I built a Slack deployment assistant and an AI support agent, then standardized how the platform caches auth credentials.',
     proof: [
-      'Working on production Kotlin/Spring Boot services that deliver 1 million+ documents daily.',
-      'Leading development on an MCP server to help developers diagnose issues when using our services.',
-      'Working with REST APIs to integrate complex services that must have near 100% uptime.',
+      'Built a multi-pipeline deployment assistant Slack app integrating Jira and Azure DevOps, from planning through demoing it for stakeholders.',
+      'Cut support time by 80% with a support agent on AWS Bedrock and LangChain, extended with custom MCP tools for data access.',
+      'Refactored a mono-repo into a reusable library for 11 existing and future services, and standardized auth caching platform-wide on Redis with encryption by default.',
     ],
-    tags: ['Kotlin', 'Spring Boot', 'MCP', 'REST APIs'],
+    tags: ['Kotlin', 'Slack', 'AWS Bedrock', 'LangChain', 'MCP'],
   },
   {
     role: 'President, Owner, & Lead Developer',
