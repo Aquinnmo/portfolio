@@ -2,6 +2,7 @@ import aiFeatureIcon from '../assets/portfolio/skills/ai_brain_data.svg'
 import awsIcon from '../assets/portfolio/skills/aws_logo.svg'
 import cIcon from '../assets/portfolio/skills/c_logo.svg'
 import claudeIcon from '../assets/portfolio/skills/claude_logo.svg'
+import cloudflareIcon from '../assets/portfolio/skills/cloudflare_logo.svg'
 import codexIcon from '../assets/portfolio/skills/codex_logo.svg'
 import cssIcon from '../assets/portfolio/skills/css_logo.svg'
 import dockerIcon from '../assets/portfolio/skills/docker_logo.svg'
@@ -61,6 +62,7 @@ export const skillBubbles: SkillBubble[] = [
 
   { name: 'GitHub', group: 'tools', icon: { kind: 'asset', src: githubIcon }, color: '#f3fbff', invertInDarkMode: true },
   { name: 'Vercel', group: 'tools', icon: { kind: 'asset', src: vercelIcon }, color: '#f3fbff', invertInDarkMode: true },
+  { name: 'Cloudflare', group: 'tools', icon: { kind: 'asset', src: cloudflareIcon }, color: '#F38020' },
   { name: 'Render', group: 'tools', icon: { kind: 'asset', src: renderIcon }, color: '#46e3b7', invertInDarkMode: true },
   { name: 'Supabase', group: 'tools', icon: { kind: 'asset', src: supabaseIcon }, color: '#3ecf8e' },
   { name: 'Firebase', group: 'tools', icon: { kind: 'asset', src: firebaseIcon }, color: '#ffca28' },

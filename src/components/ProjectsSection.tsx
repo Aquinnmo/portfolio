@@ -145,7 +145,7 @@ const projects: Project[] = [
       'Made user data portable and consent-gated: data export on demand, with AI and social features exclusively opt-in.',
       'Implemented a simple and easy-to-use interface to make data digestible and visually appealing.',
     ],
-    stack: ['React Native', 'Expo', 'Firebase', 'TypeScript', 'Vercel'],
+    stack: ['React Native', 'Expo', 'Firebase', 'TypeScript', 'Cloudflare'],
     links: [
       { label: 'Web Preview', href: 'https://pump.adam-montgomery.ca' },
       {
