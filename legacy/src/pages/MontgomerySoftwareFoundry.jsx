@@ -141,7 +141,7 @@ function MontgomerySoftwareFoundry() {
       <section className="foundry-section foundry-highlight">
         <h2>Built by Adam Montgomery</h2>
         <p>
-          As the founder and lead developer, I established Montgomery Software Foundry Inc. in the summer of 2025. Driven by my passion for building software, I wanted to help demystify technology for other business owners like myself, enabling them to leverage my expertise to their advantage.
+          As the founder and lead developer, I established Montgomery Software Foundry Inc in the summer of 2025. Driven by my passion for building software, I wanted to help demystify technology for other business owners like myself, enabling them to leverage my expertise to their advantage.
         </p>
       </section>
     </div>

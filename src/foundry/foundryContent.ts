@@ -144,7 +144,7 @@ export const engagementSteps: FoundryProcessStep[] = [
 export const founderContent: FoundryFounderContent = {
   title: 'Meet the Founder',
   description:
-    'I established Montgomery Software Foundry Inc. in summer 2025 to help small business owners use software without having to decode the technology first. Our expertise lets you specialize in doing what you do best.',
+    'I established Montgomery Software Foundry Inc in summer 2025 to help small business owners use software without having to decode the technology first. Our expertise lets you specialize in doing what you do best.',
   closing: 'If a workflow is slowing the business down, the first step is a clear conversation about what needs to change.',
   strengths: ['Full stack development', 'Product design', 'Secure delivery', 'Client specifications'],
 }
