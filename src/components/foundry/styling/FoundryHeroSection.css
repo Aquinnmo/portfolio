@@ -11,17 +11,6 @@
   text-align: left;
 }
 
-.foundry-hero-eyebrow {
-  margin: 0 0 0.85rem;
-  color: var(--color-link);
-  font-size: clamp(0.9rem, 1.6vw, 1.02rem);
-  font-weight: 900;
-  letter-spacing: 0.08em;
-  line-height: 1.2;
-  text-transform: uppercase;
-  text-shadow: 0 0 1rem color-mix(in srgb, var(--color-link) 28%, transparent);
-}
-
 .foundry-hero-copy h1 {
   margin: 0;
   max-width: 15ch;
@@ -61,66 +50,8 @@
   margin-top: 0.5rem;
 }
 
-.foundry-proof-strip {
-  display: grid;
-  width: min(100%, 60rem);
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 0.75rem;
-  margin-top: clamp(2rem, 4vw, 2.8rem);
-}
-
-.foundry-proof-item {
-  position: relative;
-  display: grid;
-  align-content: start;
-  overflow: hidden;
-  border: 1px solid color-mix(in srgb, var(--color-ice-edge) 70%, transparent);
-  border-radius: 0.82rem;
-  min-height: 8.25rem;
-  padding: 0.95rem 1rem;
-  background:
-    radial-gradient(circle at 86% 0%, color-mix(in srgb, var(--color-frost) 42%, transparent), transparent 10rem),
-    radial-gradient(circle at 4% 100%, color-mix(in srgb, var(--color-ice) 22%, transparent), transparent 9rem),
-    color-mix(in srgb, var(--color-panel-strong) 66%, transparent);
-  box-shadow: 0 0.9rem 2rem color-mix(in srgb, var(--color-shadow) 46%, transparent);
-  text-align: left;
-  backdrop-filter: blur(16px);
-}
-
-.foundry-proof-item::before {
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  background: linear-gradient(135deg, color-mix(in srgb, var(--color-frost) 14%, transparent), transparent 42%);
-  content: '';
-  pointer-events: none;
-}
-
-.foundry-proof-item > * {
-  position: relative;
-}
-
-.foundry-proof-label {
-  max-width: none;
-  margin: 0;
-  color: var(--color-link);
-  font-size: 0.92rem;
-  font-weight: 900;
-  line-height: 1.1;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-}
-
-.foundry-proof-item p {
-  margin: 0.4rem 0 0;
-  color: var(--color-text-muted);
-  font-size: 0.92rem;
-  line-height: 1.4;
-}
-
 @media (max-width: 68rem) {
   .foundry-grid,
-  .foundry-proof-strip,
   .foundry-case-study-grid {
     grid-template-columns: 1fr;
     width: min(100%, 42rem);
@@ -143,7 +74,6 @@
   }
 
   .foundry-grid,
-  .foundry-proof-strip,
   .foundry-case-study-grid {
     grid-template-columns: 1fr;
     width: 100%;
