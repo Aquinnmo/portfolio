@@ -1,4 +1,5 @@
-import { type CSSProperties, useCallback, useEffect, useRef, useState } from 'react'
+import { useState } from 'react'
+import { flushSync } from 'react-dom'
 
 import cookedIcon from '../assets/portfolio/project_icons/cooked.png'
 import githubIcon from '../assets/portfolio/github_logo.svg'
@@ -10,11 +11,6 @@ import './styling/ProjectsSection.css'
 import './styling/layout.css'
 import pdfIcon from '../assets/portfolio/pdf_icon.svg'
 import { skillBubbleByName, type SkillBubble } from './skillData'
-
-const OUTGOING_CONTENT_FADE_MS = 120
-const OUTGOING_CARD_EXIT_MS = 180
-const INCOMING_MORPH_MS = 348
-const INCOMING_REVEAL_MS = 156
 
 type ProjectLink = {
   label: string
@@ -31,48 +27,6 @@ type Project = {
   links: ProjectLink[]
   icon: string
   visualType: ProjectVisualType
-}
-
-type ProjectMorphRect = {
-  height: number
-  left: number
-  top: number
-  width: number
-}
-
-type ProjectMorphLayerStyle = CSSProperties & {
-  '--project-morph-from-height': string
-  '--project-morph-from-width': string
-  '--project-morph-x': string
-  '--project-morph-y': string
-}
-
-type ProjectMorphLayer = {
-  fromRect: ProjectMorphRect
-  id: string
-  project: Project
-  toRect: ProjectMorphRect
-  type: 'incoming' | 'outgoing'
-}
-
-type MorphPhase =
-  | 'initial'
-  | 'outgoingContentFade'
-  | 'outgoingCardExit'
-  | 'incomingMorph'
-  | 'incomingReveal'
-
-function toProjectMorphRect(rect: DOMRect): ProjectMorphRect {
-  return {
-    height: rect.height,
-    left: rect.left,
-    top: rect.top,
-    width: rect.width,
-  }
-}
-
-function prefersReducedMotion() {
-  return window.matchMedia('(prefers-reduced-motion: reduce)').matches
 }
 
 function ProjectPngMark({ icon }: { icon: string }) {
@@ -343,171 +297,19 @@ function ProjectContent({ project }: { project: Project }) {
   )
 }
 
-function FullProjectSurface({ project }: { project: Project }) {
-  return (
-    <div className="project-morph-surface">
-      <div className="project-card-header project-morph-header">
-        <h3>{project.name}</h3>
-      </div>
-      <div className="project-focus-mark project-morph-mark" aria-hidden="true">
-        <ProjectPngMark icon={project.icon} />
-      </div>
-      <div className="project-focus-content project-morph-content">
-        <ProjectContent project={project} />
-      </div>
-    </div>
-  )
-}
-
-function ProjectMorphLayer({
-  layer,
-  phase,
-}: {
-  layer: ProjectMorphLayer
-  phase: MorphPhase
-}) {
-  const targetRect =
-    layer.type === 'incoming' && (phase === 'incomingMorph' || phase === 'incomingReveal')
-      ? layer.toRect
-      : layer.fromRect
-
-  return (
-    <div
-      aria-hidden="true"
-      className={`project-morph-layer project-morph-layer-${layer.type}`}
-      data-project-morph-phase={phase}
-      style={
-        {
-          '--project-morph-from-height': `${layer.fromRect.height}px`,
-          '--project-morph-from-width': `${layer.fromRect.width}px`,
-          '--project-morph-x': `${targetRect.left}px`,
-          '--project-morph-y': `${targetRect.top}px`,
-          height: `${targetRect.height}px`,
-          width: `${targetRect.width}px`,
-        } as ProjectMorphLayerStyle
-      }
-    >
-      {layer.type === 'incoming' ? (
-        <div
-          className="project-morph-surface project-morph-surface-icon-only"
-          aria-hidden="true"
-        >
-          <ProjectGlyph type={layer.project.visualType} />
-        </div>
-      ) : (
-        <FullProjectSurface project={layer.project} />
-      )}
-    </div>
-  )
-}
-
 export function ProjectsSection() {
   const [activeProjectIndex, setActiveProjectIndex] = useState(0)
-  const [morphLayers, setMorphLayers] = useState<ProjectMorphLayer[]>([])
-  const [morphPhase, setMorphPhase] = useState<MorphPhase | 'idle'>('idle')
-  const iconRefs = useRef<Record<number, HTMLButtonElement | null>>({})
-  const focusCardRef = useRef<HTMLElement | null>(null)
-  const morphTimersRef = useRef<number[]>([])
-  const morphFrameRef = useRef<number | null>(null)
   const activeProject = projects[activeProjectIndex]
-  const isMorphing = morphPhase !== 'idle'
-
-  const clearMorphTimers = useCallback(() => {
-    morphTimersRef.current.forEach((id) => window.clearTimeout(id))
-    morphTimersRef.current = []
-    if (morphFrameRef.current !== null) {
-      window.cancelAnimationFrame(morphFrameRef.current)
-      morphFrameRef.current = null
-    }
-  }, [])
-
-  useEffect(() => {
-    return () => clearMorphTimers()
-  }, [clearMorphTimers])
-
-  const startMorph = useCallback(
-    (toIndex: number) => {
-      const selectedIcon = iconRefs.current[toIndex]
-      const focusCard = focusCardRef.current
-
-      if (!selectedIcon || !focusCard) {
-        setActiveProjectIndex(toIndex)
-        return
-      }
-
-      const selectedIconFromRect = toProjectMorphRect(selectedIcon.getBoundingClientRect())
-      const focusFromRect = toProjectMorphRect(focusCard.getBoundingClientRect())
-      const now = Date.now()
-
-      clearMorphTimers()
-
-      setMorphLayers([
-        {
-          fromRect: focusFromRect,
-          id: `outgoing-${activeProjectIndex}-${now}`,
-          project: projects[activeProjectIndex],
-          toRect: focusFromRect,
-          type: 'outgoing',
-        },
-        {
-          fromRect: selectedIconFromRect,
-          id: `incoming-${toIndex}-${now}`,
-          project: projects[toIndex],
-          toRect: focusFromRect,
-          type: 'incoming',
-        },
-      ])
-      setActiveProjectIndex(toIndex)
-      setMorphPhase('initial')
-
-      const schedule = (delay: number, fn: () => void) => {
-        const id = window.setTimeout(fn, delay)
-        morphTimersRef.current.push(id)
-      }
-
-      morphFrameRef.current = window.requestAnimationFrame(() => {
-        morphFrameRef.current = window.requestAnimationFrame(() => {
-          morphFrameRef.current = null
-          setMorphPhase('outgoingContentFade')
-        })
-      })
-
-      schedule(OUTGOING_CONTENT_FADE_MS, () => setMorphPhase('outgoingCardExit'))
-
-      schedule(OUTGOING_CONTENT_FADE_MS + OUTGOING_CARD_EXIT_MS, () =>
-        setMorphPhase('incomingMorph')
-      )
-
-      schedule(
-        OUTGOING_CONTENT_FADE_MS + OUTGOING_CARD_EXIT_MS + INCOMING_MORPH_MS,
-        () => setMorphPhase('incomingReveal')
-      )
-
-      schedule(
-        OUTGOING_CONTENT_FADE_MS +
-          OUTGOING_CARD_EXIT_MS +
-          INCOMING_MORPH_MS +
-          INCOMING_REVEAL_MS,
-        () => {
-          setMorphLayers([])
-          setMorphPhase('idle')
-        }
-      )
-    },
-    [activeProjectIndex, clearMorphTimers]
-  )
 
   function handleProjectSelect(index: number) {
-    if (index === activeProjectIndex || isMorphing) {
-      return
-    }
+    if (index === activeProjectIndex) return
 
-    if (prefersReducedMotion()) {
+    if (!document.startViewTransition || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       setActiveProjectIndex(index)
       return
     }
 
-    startMorph(index)
+    document.startViewTransition(() => flushSync(() => setActiveProjectIndex(index)))
   }
 
   return (
@@ -522,13 +324,9 @@ export function ProjectsSection() {
               className="project-icon-card"
               key={project.name}
               type="button"
-              disabled={isMorphing}
               aria-pressed={index === activeProjectIndex}
               data-project-icon-active={index === activeProjectIndex ? 'true' : undefined}
               onClick={() => handleProjectSelect(index)}
-              ref={(node) => {
-                iconRefs.current[index] = node
-              }}
               aria-label={`Feature ${project.name}`}
             >
               <ProjectGlyph type={project.visualType} />
@@ -537,9 +335,7 @@ export function ProjectsSection() {
         </div>
         <article
           className="project-card project-focus-card"
-          data-project-focus-morph-phase={morphPhase}
           aria-labelledby="active-project-title"
-          ref={focusCardRef}
         >
           <div className="project-card-header">
             <h3 id="active-project-title">{activeProject.name}</h3>
@@ -552,10 +348,6 @@ export function ProjectsSection() {
           </div>
         </article>
       </div>
-      {morphPhase !== 'idle' &&
-        morphLayers.map((layer) => (
-          <ProjectMorphLayer key={layer.id} layer={layer} phase={morphPhase} />
-        ))}
     </section>
   )
 }
