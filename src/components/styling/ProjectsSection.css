@@ -24,11 +24,7 @@
   gap: clamp(1rem, 2.5vw, 1.5rem);
   align-items: stretch;
   background: linear-gradient(135deg, color-mix(in srgb, var(--color-panel) 88%, transparent), color-mix(in srgb, var(--color-panel-strong) 72%, transparent));
-  box-shadow:
-    0 1rem 2.2rem color-mix(in srgb, var(--color-shadow) 52%, transparent),
-    inset 0 1px 0 color-mix(in srgb, var(--color-frost) 18%, transparent),
-    inset 0 0 1.4rem color-mix(in srgb, var(--color-frost) 8%, transparent),
-    inset 0 -1rem 1.8rem color-mix(in srgb, var(--color-shadow) 16%, transparent);
+  box-shadow: 0 1rem 2.2rem color-mix(in srgb, var(--color-shadow) 52%, transparent);
 }
 
 .project-visual-icon {
@@ -136,11 +132,7 @@
   padding: 0;
   color: var(--color-text);
   background: linear-gradient(135deg, color-mix(in srgb, var(--color-panel) 88%, transparent), color-mix(in srgb, var(--color-panel-strong) 72%, transparent));
-  box-shadow:
-    0 0.55rem 1.2rem color-mix(in srgb, var(--color-shadow) 42%, transparent),
-    inset 0 1px 0 color-mix(in srgb, var(--color-frost) 22%, transparent),
-    inset 0 0 1.6rem color-mix(in srgb, var(--color-frost) 10%, transparent),
-    inset 0 -1rem 1.8rem color-mix(in srgb, var(--color-shadow) 16%, transparent);
+  box-shadow: 0 0.55rem 1.2rem color-mix(in srgb, var(--color-shadow) 42%, transparent);
   cursor: pointer;
   backdrop-filter: blur(18px);
   transition:
@@ -166,23 +158,15 @@
 }
 
 .project-icon-card[data-project-icon-active='true'] {
-  box-shadow:
-    0 0 1.2rem color-mix(in srgb, var(--color-frost) 34%, transparent),
-    0 0.55rem 1.2rem color-mix(in srgb, var(--color-shadow) 42%, transparent),
-    inset 0 1px 0 color-mix(in srgb, var(--color-frost) 26%, transparent),
-    inset 0 0 1.7rem color-mix(in srgb, var(--color-frost) 12%, transparent),
-    inset 0 -1rem 1.8rem color-mix(in srgb, var(--color-shadow) 16%, transparent);
+  background: linear-gradient(135deg, color-mix(in srgb, var(--color-panel) 78%, white 12%), color-mix(in srgb, var(--color-panel-strong) 64%, white 10%));
+  box-shadow: 0 0.6rem 1.3rem color-mix(in srgb, var(--color-shadow) 46%, transparent);
 }
 
 .project-icon-card:hover:not([data-project-icon-active='true']):not(:disabled),
 .project-icon-card:focus-visible:not([data-project-icon-active='true']) {
   color: var(--color-link-hover);
-  box-shadow:
-    0 0 1.1rem color-mix(in srgb, var(--color-frost) 24%, transparent),
-    0 0.55rem 1.2rem color-mix(in srgb, var(--color-shadow) 42%, transparent),
-    inset 0 1px 0 color-mix(in srgb, var(--color-frost) 26%, transparent),
-    inset 0 0 1.7rem color-mix(in srgb, var(--color-frost) 12%, transparent),
-    inset 0 -1rem 1.8rem color-mix(in srgb, var(--color-shadow) 16%, transparent);
+  background: linear-gradient(135deg, color-mix(in srgb, var(--color-panel) 82%, white 8%), color-mix(in srgb, var(--color-panel-strong) 68%, white 6%));
+  box-shadow: 0 0.55rem 1.2rem color-mix(in srgb, var(--color-shadow) 42%, transparent);
   transform: translateY(-3px);
 }
 
@@ -199,11 +183,7 @@
   border: 1px solid color-mix(in srgb, var(--color-ice-edge) 82%, transparent);
   border-radius: 0.9rem;
   background: linear-gradient(135deg, color-mix(in srgb, var(--color-panel) 88%, transparent), color-mix(in srgb, var(--color-panel-strong) 72%, transparent));
-  box-shadow:
-    0 1rem 2.2rem color-mix(in srgb, var(--color-shadow) 52%, transparent),
-    inset 0 1px 0 color-mix(in srgb, var(--color-frost) 18%, transparent),
-    inset 0 0 1.4rem color-mix(in srgb, var(--color-frost) 8%, transparent),
-    inset 0 -1rem 1.8rem color-mix(in srgb, var(--color-shadow) 16%, transparent);
+  box-shadow: 0 1rem 2.2rem color-mix(in srgb, var(--color-shadow) 52%, transparent);
   opacity: 1;
   pointer-events: none;
   transform: translate3d(var(--project-morph-x), var(--project-morph-y), 0);
@@ -247,11 +227,7 @@
 
 .project-morph-layer-outgoing {
   z-index: 178;
-  box-shadow:
-    0 0.38rem 0.9rem color-mix(in srgb, var(--color-shadow) 34%, transparent),
-    inset 0 1px 0 color-mix(in srgb, var(--color-frost) 18%, transparent),
-    inset 0 0 1.4rem color-mix(in srgb, var(--color-frost) 8%, transparent),
-    inset 0 -1rem 1.8rem color-mix(in srgb, var(--color-shadow) 16%, transparent);
+  box-shadow: 0 0.38rem 0.9rem color-mix(in srgb, var(--color-shadow) 34%, transparent);
   opacity: 1;
   filter: none;
   transform: translate3d(var(--project-morph-x), var(--project-morph-y), 0) scale(1);
@@ -363,11 +339,7 @@
   border-radius: 0.9rem;
   padding: clamp(1rem, 2.3vw, 1.25rem);
   background: linear-gradient(135deg, color-mix(in srgb, var(--color-panel) 88%, transparent), color-mix(in srgb, var(--color-panel-strong) 72%, transparent));
-  box-shadow:
-    0 1rem 2.2rem color-mix(in srgb, var(--color-shadow) 52%, transparent),
-    inset 0 1px 0 color-mix(in srgb, var(--color-frost) 18%, transparent),
-    inset 0 0 1.4rem color-mix(in srgb, var(--color-frost) 8%, transparent),
-    inset 0 -1rem 1.8rem color-mix(in srgb, var(--color-shadow) 16%, transparent);
+  box-shadow: 0 1rem 2.2rem color-mix(in srgb, var(--color-shadow) 52%, transparent);
   text-align: left;
   backdrop-filter: blur(18px);
 }
