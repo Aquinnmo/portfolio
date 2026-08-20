@@ -3,7 +3,7 @@ import { type CSSProperties, useCallback, useEffect, useRef, useState } from 're
 import cookedIcon from '../assets/portfolio/project_icons/cooked.png'
 import githubIcon from '../assets/portfolio/github_logo.svg'
 import moneyballIcon from '../assets/portfolio/project_icons/moneyball.png'
-import pumpPalIcon from '../assets/portfolio/project_icons/pump_pal.png'
+import timberIcon from '../assets/portfolio/project_icons/timber.png'
 import rpsIcon from '../assets/portfolio/project_icons/rps.png'
 import watIcon from '../assets/portfolio/project_icons/wat.png'
 import './styling/ProjectsSection.css'
@@ -182,7 +182,7 @@ function ProjectLinkIcon({ link }: { link: ProjectLink }) {
 const projects: Project[] = [
   {
     name: 'Timber',
-    icon: pumpPalIcon,
+    icon: timberIcon,
     visualType: 'dumbbell',
     summary:
       'Mobile-first workout app currently being submitted to the Apple App Store and Google Play Store.',
