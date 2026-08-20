@@ -97,6 +97,12 @@
   font-size: clamp(1.05rem, 2vw, 1.22rem);
 }
 
+.foundry-founder-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
 .foundry-founder-strengths {
   justify-content: center;
 }

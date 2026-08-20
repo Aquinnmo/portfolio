@@ -33,7 +33,7 @@
   display: grid;
   justify-items: center;
   width: min(100%, 58rem);
-  min-height: clamp(27rem, 62svh, 34rem);
+  min-height: clamp(30rem, 68svh, 38rem);
   perspective: 1200px;
   perspective-origin: 50% 50%;
 }
@@ -188,7 +188,7 @@
 
   .experience-card-stage {
     width: min(100%, 27rem);
-    min-height: min(34rem, calc(100dvh - 7rem));
+    min-height: min(38rem, calc(100dvh - 7rem));
     perspective: 900px;
   }
 

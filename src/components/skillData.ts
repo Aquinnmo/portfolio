@@ -1,4 +1,5 @@
 import aiFeatureIcon from '../assets/portfolio/skills/ai_brain_data.svg'
+import awsIcon from '../assets/portfolio/skills/aws_logo.svg'
 import cIcon from '../assets/portfolio/skills/c_logo.svg'
 import claudeIcon from '../assets/portfolio/skills/claude_logo.svg'
 import codexIcon from '../assets/portfolio/skills/codex_logo.svg'
@@ -64,6 +65,10 @@ export const skillBubbles: SkillBubble[] = [
   { name: 'Docker', group: 'tools', icon: { kind: 'asset', src: dockerIcon }, color: '#2496ed' },
   { name: 'Redis', group: 'tools', icon: { kind: 'asset', src: redisIcon }, color: '#C6302B' },
   { name: 'Kubernetes', group: 'tools', icon: { kind: 'asset', src: kubernetesIcon }, color: '#326ce5' },
+  { name: 'AWS', group: 'tools', icon: { kind: 'asset', src: awsIcon }, color: '#f3fbff', invertInDarkMode: true },
+  { name: 'Azure DevOps', group: 'tools', icon: { kind: 'monogram', label: 'Az' }, color: '#0078D4' },
+  { name: 'SumoLogic', group: 'tools', icon: { kind: 'monogram', label: 'SL' }, color: '#00AEEF' },
+  { name: 'PostGres', group: 'tools', icon: { kind: 'monogram', label: 'Pg' }, color: '#336791' },
 
   { name: 'React', group: 'frameworks', icon: { kind: 'asset', src: reactIcon }, color: '#61dafb' },
   { name: 'Spring Boot', group: 'frameworks', icon: { kind: 'asset', src: springBootIcon }, color: '#6DB33F' },
@@ -71,6 +76,7 @@ export const skillBubbles: SkillBubble[] = [
   { name: 'React Native', group: 'frameworks', icon: { kind: 'asset', src: reactIcon }, color: '#f3fbff', monochrome: true },
   { name: 'Expo', group: 'frameworks', icon: { kind: 'asset', src: expoIcon }, color: '#f3fbff', invertInDarkMode: true },
   { name: 'Node.js', group: 'frameworks', icon: { kind: 'asset', src: nodeIcon }, color: '#5fa04e', invertInDarkMode: true },
+  { name: 'Bolt', group: 'frameworks', icon: { kind: 'monogram', label: '⚡' }, color: '#4A154B' },
 
   { name: 'Gemini API', group: 'ai', icon: { kind: 'asset', src: geminiIcon }, color: '#8ab4f8' },
   { name: 'Claude Code', group: 'ai', icon: { kind: 'asset', src: claudeIcon }, color: '#d77655' },

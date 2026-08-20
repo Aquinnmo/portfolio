@@ -3,18 +3,29 @@ import './styling/ExperienceSection.css'
 import './styling/layout.css'
 
 const experiences = [
+  // {
+  //   role: 'Full Stack Developer Intern',
+  //   company: 'TextNow',
+  //   dates: 'Starting September 2027',
+  //   summary:
+  //     'I am joinging TextNow as a Full Stack Developer Intern in September, helping democratize cellular communication for the masses.',
+  //   proof: [],
+  //   tags: ['Ruby on Rails', 'Ruby'],
+  // },
   {
-    role: 'Software Engineering Co-op',
+    role: 'Software Engineering Intern',
     company: 'SPS Commerce',
     dates: 'May 2026 - Aug 2026',
     summary:
       'I built a Slack deployment assistant and an AI support agent, then standardized how the platform caches auth credentials.',
     proof: [
-      'Built a multi-pipeline deployment assistant Slack app integrating Jira and Azure DevOps, from planning through demoing it for stakeholders.',
-      'Cut support time by 80% with a support agent on AWS Bedrock and LangChain, extended with custom MCP tools for data access.',
-      'Refactored a mono-repo into a reusable library for 11 existing and future services, and standardized auth caching platform-wide on Redis with encryption by default.',
+      'Implemented the entire feature lifecycle for a multi-pipeline deployment assistant Slack app integrating Jira and Azure DevOps taking the project from the planning phase through to demoing it for stakeholders.',
+      'Refactored to standardize caching of auth credentials platform-wide to use Redis and encryption by default.',
+      'Cut support time by 80% through a support agent built on AWS Bedrock, LangChain, and a custom context management solution.',
+      'Extended the support agent with custom MCP Tools enhancing data access for customers and developers.',
+      'Created a reusable library for 11 existing and future services by refactoring a mono-repo into distinct modules.',
     ],
-    tags: ['Kotlin', 'Slack', 'AWS Bedrock', 'LangChain', 'MCP'],
+    tags: ['Kotlin', 'MCP', 'Azure DevOps', 'Redis', 'AWS Bedrock', 'LangChain'],
   },
   {
     role: 'President, Owner, & Lead Developer',
@@ -23,11 +34,13 @@ const experiences = [
     summary:
       'I own my own software corporation focused on modernizing legacy systems to enable business owners.',
     proof: [
-      'Founded my company to sell a custom SaaS solution to a wheelchair accessible transit company in the GTA.',
-      'Updated a paper and Excel-based system to an automated online workflow that will prevent data loss.',
-      'Documented customer specifications and developed the custom software in line with the requirements.',
+      'Founded a company to sell a custom SaaS solution to a wheelchair accessible transit company in the GTA.',
+      'Updated a paper and Excel-based system to an online workflow using Postgres that prevents data loss.',
+      'Developed products to customer specifications through regular discussion about their business use case.',
+      'Developing a multi-agent system using RAG for a schools to provide control and visibility into student learning.',
+      'Secured client data by constructing the system in compliance with OWASP Top 10.',
     ],
-    tags: ['SaaS', 'Client Work', 'Product Design', 'Full Stack'],
+    tags: ['SaaS', 'Product Design', 'Software Architecture', 'Full Stack Development', 'OWASP'],
   },
   {
     role: 'AI Training Contractor',

@@ -23,7 +23,6 @@
   display: grid;
   gap: 1.1rem;
   align-self: start;
-  padding-top: clamp(3rem, 7vw, 5rem);
 }
 
 .foundry-route-summary {
@@ -50,32 +49,14 @@
   margin-top: 0.5rem;
 }
 
-@media (max-width: 68rem) {
-  .foundry-grid,
-  .foundry-case-study-grid {
-    grid-template-columns: 1fr;
-    width: min(100%, 42rem);
-  }
-}
-
 @media (max-width: 48rem) {
   .foundry-hero-section {
     grid-template-columns: 1fr;
     padding-top: 2.5rem;
   }
 
-  .foundry-hero-detail {
-    padding-top: 0;
-  }
-
   .foundry-route-summary,
   .foundry-route-detail {
     max-width: min(100%, 36rem);
-  }
-
-  .foundry-grid,
-  .foundry-case-study-grid {
-    grid-template-columns: 1fr;
-    width: 100%;
   }
 }

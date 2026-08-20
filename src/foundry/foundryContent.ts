@@ -47,17 +47,17 @@ export const heroContent = {
 
 export const contactActions: FoundryAction[] = [
   {
-    label: 'Get in touch',
+    label: 'Get in Touch',
     href: foundryContactHref,
     variant: 'primary',
   },
   {
-    label: 'Current work',
+    label: 'Current Work',
     href: '#current-work',
     variant: 'secondary',
   },
   {
-    label: 'Let us help',
+    label: 'Let Us Help',
     href: foundryContactHref,
     variant: 'secondary',
   },
@@ -73,7 +73,7 @@ export const caseStudy: FoundryCaseStudy = {
   approach:
     'We documented customer specifications and shaped them into a custom application for the way the business actually operates.',
   outcome:
-    'The new digital workflow is reduces manual handling, prevents data loss, and makes everyday information easier to manage.',
+    'The new digital workflow reduces manual handling, prevents data loss, and makes everyday information easier to manage.',
 }
 
 export const services: FoundryService[] = [
