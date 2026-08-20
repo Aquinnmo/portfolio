@@ -25,6 +25,9 @@ import supabaseIcon from '../assets/portfolio/skills/supabase_logo.svg'
 import typescriptIcon from '../assets/portfolio/skills/typescript_logo.svg'
 import vercelIcon from '../assets/portfolio/skills/vercel_logo.svg'
 import workflowIcon from '../assets/portfolio/skills/workflow_diagram.svg'
+import azureDevOpsIcon from '../assets/portfolio/skills/ado_logo.svg'
+import postgresIcon from '../assets/portfolio/skills/postgres_logo.svg'
+import sumoLogicIcon from '../assets/portfolio/skills/sumologic_logo.svg'
 
 export type SkillGroupId = 'languages' | 'tools' | 'frameworks' | 'ai'
 
@@ -66,9 +69,9 @@ export const skillBubbles: SkillBubble[] = [
   { name: 'Redis', group: 'tools', icon: { kind: 'asset', src: redisIcon }, color: '#C6302B' },
   { name: 'Kubernetes', group: 'tools', icon: { kind: 'asset', src: kubernetesIcon }, color: '#326ce5' },
   { name: 'AWS', group: 'tools', icon: { kind: 'asset', src: awsIcon }, color: '#f3fbff', invertInDarkMode: true },
-  { name: 'Azure DevOps', group: 'tools', icon: { kind: 'monogram', label: 'Az' }, color: '#0078D4' },
-  { name: 'SumoLogic', group: 'tools', icon: { kind: 'monogram', label: 'SL' }, color: '#00AEEF' },
-  { name: 'PostGres', group: 'tools', icon: { kind: 'monogram', label: 'Pg' }, color: '#336791' },
+  { name: 'Azure DevOps', group: 'tools', icon: { kind: 'asset', src: azureDevOpsIcon }, color: '#0078D4' },
+  { name: 'SumoLogic', group: 'tools', icon: { kind: 'asset', src: sumoLogicIcon }, color: '#00AEEF' },
+  { name: 'PostGres', group: 'tools', icon: { kind: 'asset', src: postgresIcon }, color: '#336791' },
 
   { name: 'React', group: 'frameworks', icon: { kind: 'asset', src: reactIcon }, color: '#61dafb' },
   { name: 'Spring Boot', group: 'frameworks', icon: { kind: 'asset', src: springBootIcon }, color: '#6DB33F' },

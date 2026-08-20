@@ -53,10 +53,25 @@
   .foundry-hero-section {
     grid-template-columns: 1fr;
     padding-top: 2.5rem;
+    justify-items: center;
+    text-align: center;
+  }
+
+  .foundry-hero-copy {
+    text-align: center;
+  }
+
+  .foundry-hero-copy h1 {
+    margin-inline: auto;
   }
 
   .foundry-route-summary,
   .foundry-route-detail {
     max-width: min(100%, 36rem);
+    margin-inline: auto;
+  }
+
+  .foundry-route-actions {
+    justify-content: center;
   }
 }
