@@ -1,0 +1,1 @@
+{"id":"int-4bf9fbb215a0588ccfe47c8cb8139746","kind":"field_change","created_at":"2026-08-20T00:32:16.570046Z","actor":"Adam Montgomery","issue_id":"portfolio-ryb.1","extra":{"field":"status","new_value":"closed","old_value":"open","reason":"Foundry hero restructured to asymmetric left-biased content-height grid, structurally distinct from centered vh-driven portfolio hero."}}
