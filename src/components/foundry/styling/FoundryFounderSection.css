@@ -37,10 +37,6 @@
   letter-spacing: -0.045em;
 }
 
-.foundry-founder-header .foundry-section-eyebrow {
-  margin: 0.85rem 0 0;
-}
-
 .foundry-founder-layout {
   display: grid;
   width: min(100%, 58rem);

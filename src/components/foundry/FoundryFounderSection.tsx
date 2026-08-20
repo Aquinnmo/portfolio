@@ -10,7 +10,6 @@ export function FoundryFounderSection() {
     <section className="content-section foundry-section foundry-founder" aria-labelledby="foundry-founder-heading">
       <div className="foundry-founder-header">
         <h2 id="foundry-founder-heading">{founderContent.title}</h2>
-        <p className="foundry-section-eyebrow">{founderContent.eyebrow}</p>
       </div>
       <div className="foundry-founder-layout">
         <figure className="foundry-founder-portrait">
