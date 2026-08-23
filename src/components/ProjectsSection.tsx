@@ -19,7 +19,6 @@ type ProjectLink = {
 
 type Project = {
   name: string
-  summary: string
   proof: string[]
   stack: string[]
   links: ProjectLink[]
@@ -69,8 +68,6 @@ const projects: Project[] = [
   {
     name: 'Timber',
     icon: timberIcon,
-    summary:
-      'Mobile-first workout app currently being submitted to the Apple App Store and Google Play Store.',
     proof: [
       'Currently submitting my mobile-first workout app to the iOS and the Android app stores.',
       'Architected my app around minimizing user interaction, having workouts auto-fill dynamically.',
@@ -89,8 +86,6 @@ const projects: Project[] = [
   {
     name: 'Moneyball',
     icon: moneyballIcon,
-    summary:
-      'Simplifies complex MLB and Statcast analytics into plain-English behaviours instead of overwhelming users with numerical KPIs.',
     proof: [
       'Simplified complex analytics from the official MLB and Statcast APIs to describe behaviours in plain English instead of overwhelming users with numerical KPIs they do not understand.',
       'Originally built as a Jupyter Notebook then expanded into a self-hosted Spring Boot service.',
@@ -107,8 +102,6 @@ const projects: Project[] = [
   {
     name: 'Custom Enterprise Databasing System',
     icon: watIcon,
-    summary:
-      'Custom maintenance, inventory, and tracking system for a York Region busing company operating hundreds of machines.',
     proof: [
       'Created an easy-to-use set of online maintenance tickets stored in a Postgres database for simple querying.',
       'Designed a role-based login system using tokens and hashed passwords.',
@@ -121,8 +114,6 @@ const projects: Project[] = [
   {
     name: 'Rock, Paper, Scissors',
     icon: rpsIcon,
-    summary:
-      'Interactive exploration of strategy and prediction in Rock, Paper, Scissors, built around algorithms that beat human play.',
     proof: [
       'Researched human tendencies when playing rock, paper, scissors. I used empirical data to design strategies that exploited human tendencies.',
       'Used dynamic-length Markov Chains to create weighted predicitions based on the user\'s previous moves.',
@@ -137,8 +128,6 @@ const projects: Project[] = [
   {
     name: 'Am I Cooked?',
     icon: cookedIcon,
-    summary:
-      'Resume and survey-based readiness tool that gives students Gemini-powered feedback for the job search.',
     proof: [
       'Built with two fellow students to help peers evaluate job-market readiness in under 36 hours.',
       'Supported both survey-based input and resume upload flows for feedback generation. We received 50+ responses in under an hour.',
@@ -178,7 +167,6 @@ function ProjectStackItem({ skill }: { skill: SkillBubble }) {
 function ProjectContent({ project }: { project: Project }) {
   return (
     <>
-      {project.summary && <p className="project-summary">{project.summary}</p>}
       {project.proof.length > 0 && (
         <ul className="project-proof-list">
           {project.proof.map((proofPoint) => (
