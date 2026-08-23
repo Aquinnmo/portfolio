@@ -94,7 +94,7 @@ const projects: Project[] = [
     ],
     stack: ['Kotlin', 'Spring Boot', 'Jupyter Notebook', 'React'],
     links: [
-      { label: 'View website', href: 'https://aquinnmo.github.io/moneyball' },
+      { label: 'View website', href: 'https://moneyball.adam-montgomery.ca' },
       { label: 'Frontend Repository', href: 'https://github.com/Aquinnmo/moneyball' },
       { label: 'Backend Repository', href: 'https://github.com/Aquinnmo/moneyball-spring' },
     ],

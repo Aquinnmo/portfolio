@@ -1,7 +1,0 @@
-
-<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="1000" viewBox="0 0 100 100">
-  <g transform="rotate(-5,50,50)">
-    <text x="10" y="65" font-family="Comic Sans MS, sans-serif" font-size="55" fill="royalblue" font-weight="bold">A</text>
-    <text x="45" y="70" font-family="Comic Sans MS, sans-serif" font-size="55" fill="royalblue" font-weight="bold">M</text>
-  </g>
-</svg>
