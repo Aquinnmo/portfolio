@@ -72,9 +72,9 @@ const projects: Project[] = [
     summary:
       'Mobile-first workout app currently being submitted to the Apple App Store and Google Play Store.',
     proof: [
-      'Architected the app around minimizing user interaction, with workouts that auto-fill dynamically.',
-      'Made user data portable and consent-gated: data export on demand, with AI and social features exclusively opt-in.',
-      'Implemented a simple and easy-to-use interface to make data digestible and visually appealing.',
+      'Currently submitting my mobile-first workout app to the iOS and the Android app stores.',
+      'Architected my app around minimizing user interaction, having workouts auto-fill dynamically.',
+      'Made data portable and consent-gated: users have data export on demand, with AI and social features being exclusively opt-in.',
     ],
     stack: ['React Native', 'Expo', 'Firebase', 'TypeScript', 'Cloudflare'],
     links: [
@@ -90,13 +90,14 @@ const projects: Project[] = [
     name: 'Moneyball',
     icon: moneyballIcon,
     summary:
-      'Simplifies complex MLB and Statcast analytics into plain-English behaviours instead of overwhelming users with KPIs.',
+      'Simplifies complex MLB and Statcast analytics into plain-English behaviours instead of overwhelming users with numerical KPIs.',
     proof: [
-      'Originally built as a Jupyter Notebook, then expanded into a self-hosted Spring Boot service.',
-      'Processed .csv files with 120+ fields and 500+ records to evaluate baseball games at a pitch-by-pitch level.',
-      'Set up a daily scheduled task to collect season data, aggregating player and team overviews for expected leaderboards and standings.',
+      'Simplified complex analytics from the official MLB and Statcast APIs to describe behaviours in plain English instead of overwhelming users with numerical KPIs they do not understand.',
+      'Originally built as a Jupyter Notebook then expanded into a self-hosted Spring Boot service.',
+      'Processed .csv files with 120+ fields with 500+ records for each game to evaluate at a pitch-by-pitch level.',
+      'A daily scheduled task collects season data, aggregating player and team overviews for expected leaderboards and standings.',
     ],
-    stack: ['Kotlin', 'React', 'Spring Boot', 'TypeScript', 'GitHub', 'Render'],
+    stack: ['Kotlin', 'Spring Boot', 'Jupyter Notebook', 'React'],
     links: [
       { label: 'View website', href: 'https://aquinnmo.github.io/moneyball' },
       { label: 'Frontend Repository', href: 'https://github.com/Aquinnmo/moneyball' },
@@ -177,7 +178,7 @@ function ProjectStackItem({ skill }: { skill: SkillBubble }) {
 function ProjectContent({ project }: { project: Project }) {
   return (
     <>
-      <p className="project-summary">{project.summary}</p>
+      {project.summary && <p className="project-summary">{project.summary}</p>}
       {project.proof.length > 0 && (
         <ul className="project-proof-list">
           {project.proof.map((proofPoint) => (

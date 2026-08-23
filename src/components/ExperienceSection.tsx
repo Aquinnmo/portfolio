@@ -13,16 +13,15 @@ const experiences = [
   //   tags: ['Ruby on Rails', 'Ruby'],
   // },
   {
-    role: 'Software Engineering Intern',
+    role: 'Systems Automation Framework Coop.',
     company: 'SPS Commerce',
-    dates: 'May 2026 - Aug 2026',
-    summary:
-      'I built a Slack deployment assistant and an AI support agent, then standardized how the platform caches auth credentials.',
+    dates: 'May 2026 – Aug 2026',
+    summary: '',
     proof: [
-      'Implemented the entire feature lifecycle for a multi-pipeline deployment assistant Slack app integrating Jira and Azure DevOps taking the project from the planning phase through to demoing it for stakeholders.',
+      'Implemented the entire feature lifecycle for a multi-pipeline deployment assistant Slack app integrating Jira and Azure DevOps, from the planning phase through completion, then defined a roadmap for future iterations.',
       'Refactored to standardize caching of auth credentials platform-wide to use Redis and encryption by default.',
-      'Cut support time by 80% through a support agent built on AWS Bedrock, LangChain, and a custom context management solution.',
-      'Extended the support agent with custom MCP Tools enhancing data access for customers and developers.',
+      'Cut support time by 65% through a support agent built on AWS Bedrock, LangChain, and a custom context management solution.',
+      'Extended the support agent with custom MCP Tools, enhancing data access for customers and developers.',
       'Created a reusable library for 11 existing and future services by refactoring a mono-repo into distinct modules.',
     ],
     tags: ['Kotlin', 'MCP', 'Azure DevOps', 'Redis', 'AWS Bedrock', 'LangChain'],
@@ -30,15 +29,14 @@ const experiences = [
   {
     role: 'President, Owner, & Lead Developer',
     company: 'Montgomery Software Foundry Inc.',
-    dates: 'Aug 2025 - Present',
-    summary:
-      'I own my own software corporation focused on modernizing legacy systems to enable business owners.',
+    dates: '2025 – Present',
+    summary: '',
     proof: [
       'Founded a company to sell a custom SaaS solution to a wheelchair accessible transit company in the GTA.',
       'Updated a paper and Excel-based system to an online workflow using Postgres that prevents data loss.',
       'Developed products to customer specifications through regular discussion about their business use case.',
       'Developing a multi-agent system using RAG for a schools to provide control and visibility into student learning.',
-      'Secured client data by constructing the system in compliance with OWASP Top 10.',
+      'Secured client data by constructing company systems in compliance with OWASP Top 10.',
     ],
     tags: ['SaaS', 'Product Design', 'Software Architecture', 'Full Stack Development', 'OWASP'],
   },
@@ -342,7 +340,7 @@ export function ExperienceSection() {
                       </div>
                       <p className="experience-dates">{experience.dates}</p>
                     </div>
-                    <p className="experience-summary">{experience.summary}</p>
+                    {experience.summary && <p className="experience-summary">{experience.summary}</p>}
                     <ul className="experience-proof-list">
                       {experience.proof.map((proofPoint) => (
                         <li key={proofPoint}>{proofPoint}</li>

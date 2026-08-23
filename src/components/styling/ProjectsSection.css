@@ -148,6 +148,11 @@
   letter-spacing: -0.035em;
 }
 
+.project-dates {
+  margin: 0.35rem 0 0;
+  color: var(--color-text-muted);
+}
+
 .project-summary {
   margin-top: 0.85rem;
   color: var(--color-text-muted);
