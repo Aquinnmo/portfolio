@@ -11,15 +11,18 @@ import firebaseIcon from '../assets/portfolio/skills/firebase_logo.svg'
 import geminiIcon from '../assets/portfolio/skills/gemini_logo.svg'
 import githubIcon from '../assets/portfolio/skills/github_logo.svg'
 import javaIcon from '../assets/portfolio/skills/java_logo.svg'
+import jupyterIcon from '../assets/portfolio/skills/jupyter_logo.svg'
 import kotlinIcon from '../assets/portfolio/skills/kotlin_logo.svg'
 import kubernetesIcon from '../assets/portfolio/skills/kubernetes_logo.svg'
 import mcpServerIcon from '../assets/portfolio/skills/mcp_server.svg'
+import mongodbIcon from '../assets/portfolio/skills/mongodb_logo.svg'
 import nextIcon from '../assets/portfolio/skills/nextjs_logo.svg'
 import nodeIcon from '../assets/portfolio/skills/nodejs_logo.svg'
 import openaiIcon from '../assets/portfolio/skills/openai_logo.svg'
 import pythonIcon from '../assets/portfolio/skills/python_logo.svg'
 import reactIcon from '../assets/portfolio/skills/react_logo.svg'
 import redisIcon from '../assets/portfolio/skills/redis_logo.svg'
+import renderIcon from '../assets/portfolio/skills/render_logo.svg'
 import springBootIcon from '../assets/portfolio/skills/spring_boot_logo.svg'
 import supabaseIcon from '../assets/portfolio/skills/supabase_logo.svg'
 import typescriptIcon from '../assets/portfolio/skills/typescript_logo.svg'
@@ -64,6 +67,8 @@ export const skillBubbles: SkillBubble[] = [
   { name: 'Cloudflare', group: 'tools', icon: { kind: 'asset', src: cloudflareIcon }, color: '#F38020' },
   { name: 'Supabase', group: 'tools', icon: { kind: 'asset', src: supabaseIcon }, color: '#3ecf8e' },
   { name: 'Firebase', group: 'tools', icon: { kind: 'asset', src: firebaseIcon }, color: '#ffca28' },
+  { name: 'MongoDB', group: 'tools', icon: { kind: 'asset', src: mongodbIcon }, color: '#47A248' },
+  { name: 'Render', group: 'tools', icon: { kind: 'asset', src: renderIcon }, color: '#46E3B7', invertInDarkMode: true },
   { name: 'Docker', group: 'tools', icon: { kind: 'asset', src: dockerIcon }, color: '#2496ed' },
   { name: 'Redis', group: 'tools', icon: { kind: 'asset', src: redisIcon }, color: '#C6302B' },
   { name: 'Kubernetes', group: 'tools', icon: { kind: 'asset', src: kubernetesIcon }, color: '#326ce5' },
@@ -78,6 +83,7 @@ export const skillBubbles: SkillBubble[] = [
   { name: 'React Native', group: 'frameworks', icon: { kind: 'asset', src: reactIcon }, color: '#f3fbff', monochrome: true },
   { name: 'Expo', group: 'frameworks', icon: { kind: 'asset', src: expoIcon }, color: '#f3fbff', invertInDarkMode: true },
   { name: 'Node.js', group: 'frameworks', icon: { kind: 'asset', src: nodeIcon }, color: '#5fa04e', invertInDarkMode: true },
+  { name: 'Jupyter Notebooks', group: 'frameworks', icon: { kind: 'asset', src: jupyterIcon }, color: '#F37626', invertInDarkMode: true },
   { name: 'Slack Bolt', group: 'frameworks', icon: { kind: 'asset', src: slackIcon }, color: '#36C5F0' },
 
   { name: 'AWS Bedrock', group: 'ai', icon: { kind: 'asset', src: bedrockIcon }, color: '#01A88D' },
