@@ -13,7 +13,7 @@ const experiences = [
   //   tags: ['Ruby on Rails', 'Ruby'],
   // },
   {
-    role: 'Systems Automation Framework Coop.',
+    role: 'Software Engineering Intern',
     company: 'SPS Commerce',
     dates: 'May 2026 – Aug 2026',
     summary: '',
