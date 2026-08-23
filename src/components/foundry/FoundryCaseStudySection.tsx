@@ -12,17 +12,23 @@ export function FoundryCaseStudySection() {
           <h2 id="foundry-case-study-heading">{caseStudy.title}</h2>
           <p className="foundry-case-study-summary">{caseStudy.summary}</p>
         </div>
-        <div className="foundry-case-study-grid">
-          <article>
-            <h3>Problem</h3>
+        <div className="foundry-case-transform">
+          <article className="foundry-case-card foundry-case-card--before">
+            <p className="foundry-case-tag">Before</p>
             <p>{caseStudy.problem}</p>
           </article>
-          <article>
-            <h3>Approach</h3>
+          <div className="foundry-case-seam" aria-hidden="true">
+            <span className="foundry-case-seam-line" />
+          </div>
+          <div className="foundry-case-approach">
+            <p className="foundry-case-tag">Approach</p>
             <p>{caseStudy.approach}</p>
-          </article>
-          <article>
-            <h3>Solution</h3>
+          </div>
+          <div className="foundry-case-seam foundry-case-seam--right" aria-hidden="true">
+            <span className="foundry-case-seam-line" />
+          </div>
+          <article className="foundry-case-card foundry-case-card--after">
+            <p className="foundry-case-tag">After</p>
             <p>{caseStudy.outcome}</p>
           </article>
         </div>

@@ -135,13 +135,8 @@
   border-color: color-mix(in srgb, var(--skill-color) 82%, var(--color-frost));
   background:
     radial-gradient(circle at 42% 30%, color-mix(in srgb, var(--skill-color) 24%, transparent), transparent 62%),
-    color-mix(in srgb, var(--color-panel-strong) 90%, transparent);
-  box-shadow:
-    0 0 1.6rem color-mix(in srgb, var(--skill-color) 52%, transparent),
-    0 1rem 2rem color-mix(in srgb, var(--color-shadow) 50%, transparent),
-    inset 0 1px 0 color-mix(in srgb, var(--color-frost) 26%, transparent),
-    inset 0 0 1.15rem color-mix(in srgb, var(--skill-color) 18%, transparent);
-  filter: drop-shadow(0 0 0.9rem color-mix(in srgb, var(--skill-color) 46%, transparent));
+    color-mix(in srgb, var(--color-panel-strong) 78%, white 12%);
+  box-shadow: 0 1rem 2rem color-mix(in srgb, var(--color-shadow) 50%, transparent);
   transform: scale(1.16);
 }
 

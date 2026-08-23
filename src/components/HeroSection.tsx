@@ -37,11 +37,12 @@ const quickLinks: QuickLink[] = [
     invertInDarkMode: true,
   },
   {
-    label: 'LinkedIn',
-    href: 'https://linkedin.com/in/adam-montgomery-05a936315',
-    icon: linkedInIcon,
-    external: true,
-    color: '#007EBB',
+    label: 'Email',
+    href: 'mailto:adammontcompany@gmail.com',
+    icon: emailIcon,
+    external: false,
+    color: '#87dbff',
+    invertInDarkMode: true,
   },
   {
     label: 'GitHub',
@@ -52,12 +53,11 @@ const quickLinks: QuickLink[] = [
     invertInDarkMode: true,
   },
   {
-    label: 'Email',
-    href: 'mailto:adammontcompany@gmail.com',
-    icon: emailIcon,
-    external: false,
-    color: '#87dbff',
-    invertInDarkMode: true,
+    label: 'LinkedIn',
+    href: 'https://linkedin.com/in/adam-montgomery-05a936315',
+    icon: linkedInIcon,
+    external: true,
+    color: '#007EBB',
   },
 ]
 

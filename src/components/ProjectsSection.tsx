@@ -1,9 +1,10 @@
-import { type CSSProperties, useCallback, useEffect, useRef, useState } from 'react'
+import { useState } from 'react'
+import { flushSync } from 'react-dom'
 
 import cookedIcon from '../assets/portfolio/project_icons/cooked.png'
 import githubIcon from '../assets/portfolio/github_logo.svg'
 import moneyballIcon from '../assets/portfolio/project_icons/moneyball.png'
-import pumpPalIcon from '../assets/portfolio/project_icons/pump_pal.png'
+import timberIcon from '../assets/portfolio/project_icons/timber.png'
 import rpsIcon from '../assets/portfolio/project_icons/rps.png'
 import watIcon from '../assets/portfolio/project_icons/wat.png'
 import './styling/ProjectsSection.css'
@@ -11,137 +12,21 @@ import './styling/layout.css'
 import pdfIcon from '../assets/portfolio/pdf_icon.svg'
 import { skillBubbleByName, type SkillBubble } from './skillData'
 
-const OUTGOING_CONTENT_FADE_MS = 120
-const OUTGOING_CARD_EXIT_MS = 180
-const INCOMING_MORPH_MS = 348
-const INCOMING_REVEAL_MS = 156
-
 type ProjectLink = {
   label: string
   href: string
 }
 
-type ProjectVisualType = 'dumbbell' | 'bus' | 'chain' | 'fire' | 'baseball'
-
 type Project = {
   name: string
-  summary: string
   proof: string[]
   stack: string[]
   links: ProjectLink[]
   icon: string
-  visualType: ProjectVisualType
-}
-
-type ProjectMorphRect = {
-  height: number
-  left: number
-  top: number
-  width: number
-}
-
-type ProjectMorphLayerStyle = CSSProperties & {
-  '--project-morph-from-height': string
-  '--project-morph-from-width': string
-  '--project-morph-x': string
-  '--project-morph-y': string
-}
-
-type ProjectMorphLayer = {
-  fromRect: ProjectMorphRect
-  id: string
-  project: Project
-  toRect: ProjectMorphRect
-  type: 'incoming' | 'outgoing'
-}
-
-type MorphPhase =
-  | 'initial'
-  | 'outgoingContentFade'
-  | 'outgoingCardExit'
-  | 'incomingMorph'
-  | 'incomingReveal'
-
-function toProjectMorphRect(rect: DOMRect): ProjectMorphRect {
-  return {
-    height: rect.height,
-    left: rect.left,
-    top: rect.top,
-    width: rect.width,
-  }
-}
-
-function prefersReducedMotion() {
-  return window.matchMedia('(prefers-reduced-motion: reduce)').matches
 }
 
 function ProjectPngMark({ icon }: { icon: string }) {
   return <img className="project-png-mark" src={icon} alt="" aria-hidden="true" />
-}
-
-function ProjectGlyph({ type }: { type: ProjectVisualType }) {
-  if (type === 'dumbbell') {
-    return (
-      <svg className="project-visual-icon project-visual-icon--svg" viewBox="0 0 64 64" aria-hidden="true">
-        <g transform="scale(2)">
-          <path vectorEffect="non-scaling-stroke" d="M7,25c-1.7,0-3-1.3-3-3V10c0-1.7,1.3-3,3-3s3,1.3,3,3v12C10,23.7,8.7,25,7,25z" />
-          <path vectorEffect="non-scaling-stroke" d="M25,25c-1.7,0-3-1.3-3-3V10c0-1.7,1.3-3,3-3s3,1.3,3,3v12C28,23.7,26.7,25,25,25z" />
-          <path vectorEffect="non-scaling-stroke" d="M23,17H9c-0.6,0-1-0.4-1-1s0.4-1,1-1h14c0.6,0,1,0.4,1,1S23.6,17,23,17z" />
-          <path vectorEffect="non-scaling-stroke" d="M2,10.2c-1.2,0.4-2,1.5-2,2.8v6c0,1.3,0.8,2.4,2,2.8V10.2z" />
-          <path vectorEffect="non-scaling-stroke" d="M30,10.2v11.6c1.2-0.4,2-1.5,2-2.8v-6C32,11.7,31.2,10.6,30,10.2z" />
-        </g>
-      </svg>
-    )
-  }
-
-  if (type === 'bus') {
-    return (
-      <svg className="project-visual-icon project-visual-icon--svg" viewBox="0 0 64 64" aria-hidden="true">
-        <g transform="scale(2.6667)">
-          <path vectorEffect="non-scaling-stroke" d="M4.36,17.73H1.5V6.27A1.92,1.92,0,0,1,3.41,4.36h14a1.91,1.91,0,0,1,1.85,1.45l1.3,5.24L22.5,12.2v5.53H19.64" />
-          <line vectorEffect="non-scaling-stroke" x1="15.82" y1="17.73" x2="8.18" y2="17.73" />
-          <circle vectorEffect="non-scaling-stroke" cx="17.73" cy="17.73" r="1.91" />
-          <circle vectorEffect="non-scaling-stroke" cx="6.27" cy="17.73" r="1.91" />
-          <line vectorEffect="non-scaling-stroke" x1="4.36" y1="11.05" x2="20.59" y2="11.05" />
-          <line vectorEffect="non-scaling-stroke" x1="15.82" y1="7.23" x2="15.82" y2="12" />
-          <line vectorEffect="non-scaling-stroke" x1="11.05" y1="7.23" x2="11.05" y2="12" />
-          <line vectorEffect="non-scaling-stroke" x1="6.27" y1="7.23" x2="6.27" y2="12" />
-          <line vectorEffect="non-scaling-stroke" x1="20.59" y1="14.86" x2="22.5" y2="14.86" />
-        </g>
-      </svg>
-    )
-  }
-
-  if (type === 'chain') {
-    return (
-      <svg className="project-visual-icon project-visual-icon--svg" viewBox="0 0 64 64" aria-hidden="true">
-        <g transform="scale(2.6667)">
-          <path vectorEffect="non-scaling-stroke" d="M9.14,7.23A4.76,4.76,0,0,1,13,5.32h4.78a4.77,4.77,0,1,1,0,9.54H13a4.77,4.77,0,0,1-4.67-3.81" />
-          <path vectorEffect="non-scaling-stroke" d="M15.72,13a4.77,4.77,0,0,0-4.67-3.81H6.27a4.77,4.77,0,0,0,0,9.54h4.78a4.76,4.76,0,0,0,3.37-1.39,3.57,3.57,0,0,0,.44-.52" />
-        </g>
-      </svg>
-    )
-  }
-
-  if (type === 'baseball') {
-    return (
-      <svg className="project-visual-icon project-visual-icon--svg" viewBox="0 0 64 64" aria-hidden="true">
-        <g transform="scale(2.6667)">
-          <circle vectorEffect="non-scaling-stroke" cx="12" cy="12" r="9.5" />
-          <path vectorEffect="non-scaling-stroke" d="M5.5,6.5 Q12,9 18.5,6.5" />
-          <path vectorEffect="non-scaling-stroke" d="M5.5,17.5 Q12,15 18.5,17.5" />
-        </g>
-      </svg>
-    )
-  }
-
-  return (
-    <svg className="project-visual-icon project-visual-icon--svg" viewBox="0 0 64 64" aria-hidden="true">
-      <g transform="scale(2.6667)">
-        <path style={{ fill: 'var(--color-ice-strong)', stroke: 'none' }} d="M5.926 20.574a7.26 7.26 0 0 0 3.039 1.511c.107.035.179-.105.107-.175-2.395-2.285-1.079-4.758-.107-5.873.693-.796 1.68-2.107 1.608-3.865 0-.176.18-.317.322-.211 1.359.703 2.288 2.25 2.538 3.515.394-.386.537-.984.537-1.511 0-.176.214-.317.393-.176 1.287 1.16 3.503 5.097-.072 8.19-.071.071 0 .212.072.177a8.761 8.761 0 0 0 3.003-1.442c5.827-4.5 2.037-12.48-.43-15.116-.321-.317-.893-.106-.893.351-.036.95-.322 2.004-1.072 2.707-.572-2.39-2.478-5.105-5.195-6.441-.357-.176-.786.105-.75.492.07 3.27-2.063 5.352-3.922 8.059-1.645 2.425-2.717 6.89.822 9.808z" />
-      </g>
-    </svg>
-  )
 }
 
 function ExternalArrowIcon() {
@@ -181,36 +66,14 @@ function ProjectLinkIcon({ link }: { link: ProjectLink }) {
 
 const projects: Project[] = [
   {
-    name: 'Moneyball',
-    icon: moneyballIcon,
-    visualType: 'baseball',
-    summary:
-      'Full-stack web app that processes MLB pitch-level data through Jupyter Notebooks, CSV parsing, and the Statcast API to surface advanced baseball analytics.\nPlease note: the free Render instance can take multiple minutes to spin up the Spring Boot server.',
+    name: 'Timber',
+    icon: timberIcon,
     proof: [
-      'Built a full-stack web app from a custom Jupyter Notebook to display advanced MLB analytics.',
-      'Processed .csv files with 120+ fields with 500+ records to evaluate baseball games at a pitch level.',
-      'Worked with the official MLB and Statcast APIs to generate easily digestible insights based on game events.',
+      'Currently submitting my mobile-first workout app to the iOS and the Android app stores.',
+      'Architected my app around minimizing user interaction, having workouts auto-fill dynamically.',
+      'Made data portable and consent-gated: users have data export on demand, with AI and social features being exclusively opt-in.',
     ],
-    stack: ['Kotlin', 'React', 'Spring Boot', 'TypeScript', 'GitHub', 'Render'],
-    links: [
-      { label: 'View website', href: 'https://aquinnmo.github.io/moneyball' },
-      { label: 'Frontend Repository', href: 'https://github.com/Aquinnmo/moneyball' },
-      { label: 'Backend Repository', href: 'https://github.com/Aquinnmo/moneyball-spring' },
-    ],
-  },
-  {
-    name: 'Pump Pal',
-    icon: pumpPalIcon,
-    visualType: 'dumbbell',
-    summary:
-      'Mobile-first workout tracker focused on balanced training, injury reduction, and AI-powered analytics.',
-    proof: [
-      'Developed a workout tracker to minimize injuries and balance workouts using personalized workout metrics.',
-      'Leveraged the Gemini API to analyze workout history and generate insights into the muscles you are working.',
-      'Implemented a simple and easy-to-use interface to make data digestible and visually appealing.',
-      'Used Firebase to store workout data as a NoSQL database allows for workout flexibility.',
-    ],
-    stack: ['React Native', 'Expo', 'Firebase', 'Gemini API', 'Vercel'],
+    stack: ['React Native', 'Expo', 'Firebase', 'TypeScript', 'Cloudflare'],
     links: [
       { label: 'Web Preview', href: 'https://pump.adam-montgomery.ca' },
       {
@@ -221,11 +84,24 @@ const projects: Project[] = [
     ],
   },
   {
+    name: 'Moneyball',
+    icon: moneyballIcon,
+    proof: [
+      'Simplified complex analytics from the official MLB and Statcast APIs to describe behaviours in plain English instead of overwhelming users with numerical KPIs they do not understand.',
+      'Originally built as a Jupyter Notebook then expanded into a self-hosted Spring Boot service.',
+      'Processed .csv files with 120+ fields with 500+ records for each game to evaluate at a pitch-by-pitch level.',
+      'A daily scheduled task collects season data, aggregating player and team overviews for expected leaderboards and standings.',
+    ],
+    stack: ['Kotlin', 'Spring Boot', 'Jupyter Notebook', 'React'],
+    links: [
+      { label: 'View website', href: 'https://aquinnmo.github.io/moneyball' },
+      { label: 'Frontend Repository', href: 'https://github.com/Aquinnmo/moneyball' },
+      { label: 'Backend Repository', href: 'https://github.com/Aquinnmo/moneyball-spring' },
+    ],
+  },
+  {
     name: 'Custom Enterprise Databasing System',
     icon: watIcon,
-    visualType: 'bus',
-    summary:
-      'Custom maintenance, inventory, and tracking system for a York Region busing company operating hundreds of machines.',
     proof: [
       'Created an easy-to-use set of online maintenance tickets stored in a Postgres database for simple querying.',
       'Designed a role-based login system using tokens and hashed passwords.',
@@ -238,9 +114,6 @@ const projects: Project[] = [
   {
     name: 'Rock, Paper, Scissors',
     icon: rpsIcon,
-    visualType: 'chain',
-    summary:
-      'Interactive exploration of strategy and prediction in Rock, Paper, Scissors, built around algorithms that beat human play.',
     proof: [
       'Researched human tendencies when playing rock, paper, scissors. I used empirical data to design strategies that exploited human tendencies.',
       'Used dynamic-length Markov Chains to create weighted predicitions based on the user\'s previous moves.',
@@ -255,9 +128,6 @@ const projects: Project[] = [
   {
     name: 'Am I Cooked?',
     icon: cookedIcon,
-    visualType: 'fire',
-    summary:
-      'Resume and survey-based readiness tool that gives students Gemini-powered feedback for the job search.',
     proof: [
       'Built with two fellow students to help peers evaluate job-market readiness in under 36 hours.',
       'Supported both survey-based input and resume upload flows for feedback generation. We received 50+ responses in under an hour.',
@@ -297,7 +167,6 @@ function ProjectStackItem({ skill }: { skill: SkillBubble }) {
 function ProjectContent({ project }: { project: Project }) {
   return (
     <>
-      <p className="project-summary">{project.summary}</p>
       {project.proof.length > 0 && (
         <ul className="project-proof-list">
           {project.proof.map((proofPoint) => (
@@ -344,171 +213,19 @@ function ProjectContent({ project }: { project: Project }) {
   )
 }
 
-function FullProjectSurface({ project }: { project: Project }) {
-  return (
-    <div className="project-morph-surface">
-      <div className="project-card-header project-morph-header">
-        <h3>{project.name}</h3>
-      </div>
-      <div className="project-focus-mark project-morph-mark" aria-hidden="true">
-        <ProjectPngMark icon={project.icon} />
-      </div>
-      <div className="project-focus-content project-morph-content">
-        <ProjectContent project={project} />
-      </div>
-    </div>
-  )
-}
-
-function ProjectMorphLayer({
-  layer,
-  phase,
-}: {
-  layer: ProjectMorphLayer
-  phase: MorphPhase
-}) {
-  const targetRect =
-    layer.type === 'incoming' && (phase === 'incomingMorph' || phase === 'incomingReveal')
-      ? layer.toRect
-      : layer.fromRect
-
-  return (
-    <div
-      aria-hidden="true"
-      className={`project-morph-layer project-morph-layer-${layer.type}`}
-      data-project-morph-phase={phase}
-      style={
-        {
-          '--project-morph-from-height': `${layer.fromRect.height}px`,
-          '--project-morph-from-width': `${layer.fromRect.width}px`,
-          '--project-morph-x': `${targetRect.left}px`,
-          '--project-morph-y': `${targetRect.top}px`,
-          height: `${targetRect.height}px`,
-          width: `${targetRect.width}px`,
-        } as ProjectMorphLayerStyle
-      }
-    >
-      {layer.type === 'incoming' ? (
-        <div
-          className="project-morph-surface project-morph-surface-icon-only"
-          aria-hidden="true"
-        >
-          <ProjectGlyph type={layer.project.visualType} />
-        </div>
-      ) : (
-        <FullProjectSurface project={layer.project} />
-      )}
-    </div>
-  )
-}
-
 export function ProjectsSection() {
   const [activeProjectIndex, setActiveProjectIndex] = useState(0)
-  const [morphLayers, setMorphLayers] = useState<ProjectMorphLayer[]>([])
-  const [morphPhase, setMorphPhase] = useState<MorphPhase | 'idle'>('idle')
-  const iconRefs = useRef<Record<number, HTMLButtonElement | null>>({})
-  const focusCardRef = useRef<HTMLElement | null>(null)
-  const morphTimersRef = useRef<number[]>([])
-  const morphFrameRef = useRef<number | null>(null)
   const activeProject = projects[activeProjectIndex]
-  const isMorphing = morphPhase !== 'idle'
-
-  const clearMorphTimers = useCallback(() => {
-    morphTimersRef.current.forEach((id) => window.clearTimeout(id))
-    morphTimersRef.current = []
-    if (morphFrameRef.current !== null) {
-      window.cancelAnimationFrame(morphFrameRef.current)
-      morphFrameRef.current = null
-    }
-  }, [])
-
-  useEffect(() => {
-    return () => clearMorphTimers()
-  }, [clearMorphTimers])
-
-  const startMorph = useCallback(
-    (toIndex: number) => {
-      const selectedIcon = iconRefs.current[toIndex]
-      const focusCard = focusCardRef.current
-
-      if (!selectedIcon || !focusCard) {
-        setActiveProjectIndex(toIndex)
-        return
-      }
-
-      const selectedIconFromRect = toProjectMorphRect(selectedIcon.getBoundingClientRect())
-      const focusFromRect = toProjectMorphRect(focusCard.getBoundingClientRect())
-      const now = Date.now()
-
-      clearMorphTimers()
-
-      setMorphLayers([
-        {
-          fromRect: focusFromRect,
-          id: `outgoing-${activeProjectIndex}-${now}`,
-          project: projects[activeProjectIndex],
-          toRect: focusFromRect,
-          type: 'outgoing',
-        },
-        {
-          fromRect: selectedIconFromRect,
-          id: `incoming-${toIndex}-${now}`,
-          project: projects[toIndex],
-          toRect: focusFromRect,
-          type: 'incoming',
-        },
-      ])
-      setActiveProjectIndex(toIndex)
-      setMorphPhase('initial')
-
-      const schedule = (delay: number, fn: () => void) => {
-        const id = window.setTimeout(fn, delay)
-        morphTimersRef.current.push(id)
-      }
-
-      morphFrameRef.current = window.requestAnimationFrame(() => {
-        morphFrameRef.current = window.requestAnimationFrame(() => {
-          morphFrameRef.current = null
-          setMorphPhase('outgoingContentFade')
-        })
-      })
-
-      schedule(OUTGOING_CONTENT_FADE_MS, () => setMorphPhase('outgoingCardExit'))
-
-      schedule(OUTGOING_CONTENT_FADE_MS + OUTGOING_CARD_EXIT_MS, () =>
-        setMorphPhase('incomingMorph')
-      )
-
-      schedule(
-        OUTGOING_CONTENT_FADE_MS + OUTGOING_CARD_EXIT_MS + INCOMING_MORPH_MS,
-        () => setMorphPhase('incomingReveal')
-      )
-
-      schedule(
-        OUTGOING_CONTENT_FADE_MS +
-          OUTGOING_CARD_EXIT_MS +
-          INCOMING_MORPH_MS +
-          INCOMING_REVEAL_MS,
-        () => {
-          setMorphLayers([])
-          setMorphPhase('idle')
-        }
-      )
-    },
-    [activeProjectIndex, clearMorphTimers]
-  )
 
   function handleProjectSelect(index: number) {
-    if (index === activeProjectIndex || isMorphing) {
-      return
-    }
+    if (index === activeProjectIndex) return
 
-    if (prefersReducedMotion()) {
+    if (!document.startViewTransition || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       setActiveProjectIndex(index)
       return
     }
 
-    startMorph(index)
+    document.startViewTransition(() => flushSync(() => setActiveProjectIndex(index)))
   }
 
   return (
@@ -523,24 +240,18 @@ export function ProjectsSection() {
               className="project-icon-card"
               key={project.name}
               type="button"
-              disabled={isMorphing}
               aria-pressed={index === activeProjectIndex}
               data-project-icon-active={index === activeProjectIndex ? 'true' : undefined}
               onClick={() => handleProjectSelect(index)}
-              ref={(node) => {
-                iconRefs.current[index] = node
-              }}
               aria-label={`Feature ${project.name}`}
             >
-              <ProjectGlyph type={project.visualType} />
+              <ProjectPngMark icon={project.icon} />
             </button>
           ))}
         </div>
         <article
           className="project-card project-focus-card"
-          data-project-focus-morph-phase={morphPhase}
           aria-labelledby="active-project-title"
-          ref={focusCardRef}
         >
           <div className="project-card-header">
             <h3 id="active-project-title">{activeProject.name}</h3>
@@ -553,10 +264,6 @@ export function ProjectsSection() {
           </div>
         </article>
       </div>
-      {morphPhase !== 'idle' &&
-        morphLayers.map((layer) => (
-          <ProjectMorphLayer key={layer.id} layer={layer} phase={morphPhase} />
-        ))}
     </section>
   )
 }

@@ -7,7 +7,7 @@ import { FoundryServicesSection } from './foundry/FoundryServicesSection'
 import './styling/FoundryPage.css'
 import './styling/layout.css'
 
-export function FoundryPage() {
+export function FoundryPage({ onNavigateToPortfolio }: { onNavigateToPortfolio: () => void }) {
   return (
     <main className="page-flow foundry-page-flow" aria-labelledby="page-title">
       <FoundryHeroSection />
@@ -15,7 +15,7 @@ export function FoundryPage() {
       <FoundryCaseStudySection />
       <FoundryDifferentiatorsSection />
       <FoundryProcessSection />
-      <FoundryFounderSection />
+      <FoundryFounderSection onNavigateToPortfolio={onNavigateToPortfolio} />
     </main>
   )
 }

@@ -198,7 +198,7 @@
   z-index: 1;
   color: var(--color-text);
   filter: drop-shadow(0 0 1rem color-mix(in srgb, var(--quick-link-color) 52%, transparent));
-  transform: scale(1.16);
+  transform: scale(1.22);
 }
 
 .quick-link-icon {

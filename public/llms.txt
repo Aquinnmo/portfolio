@@ -11,19 +11,37 @@ This site is intended to help recruiters, hiring managers, and technical reviewe
 
 - Hero: Adam Montgomery, rotating professional descriptors, resume download, project link, skills link, and quick contact links.
 - Experience: SPS Commerce, Montgomery Software Foundry Inc., and DataAnnotation.
-- Projects: Pump Pal, Custom Enterprise Databasing System, Rock Paper Scissors, and Am I Cooked.
+- Projects: Timber, Moneyball, Custom Enterprise Databasing System, Rock Paper Scissors, and Am I Cooked.
 - Skills: Languages, Tools, Frameworks, and AI.
 - Contact: resume download, email, GitHub, and LinkedIn.
 
 ## Experience Summary
 
-- SPS Commerce: software engineering intern working with production Kotlin and Spring Boot services, MCP tooling, and REST APIs.
-- Montgomery Software Foundry Inc.: founder and lead developer building custom SaaS and operational software for clients.
+- SPS Commerce — Systems Automation Framework Coop. — May 2026 – Aug 2026:
+  - Implemented the entire feature lifecycle for a multi-pipeline deployment assistant Slack app integrating Jira and Azure DevOps, from the planning phase through completion, then defined a roadmap for future iterations.
+  - Refactored to standardize caching of auth credentials platform-wide to use Redis and encryption by default.
+  - Cut support time by 65% through a support agent built on AWS Bedrock, LangChain, and a custom context management solution.
+  - Extended the support agent with custom MCP Tools, enhancing data access for customers and developers.
+  - Created a reusable library for 11 existing and future services by refactoring a mono-repo into distinct modules.
+- Montgomery Software Foundry Inc. — President, Owner, & Lead Developer — 2025 – Present:
+  - Founded a company to sell a custom SaaS solution to a wheelchair accessible transit company in the GTA.
+  - Updated a paper and Excel-based system to an online workflow using Postgres that prevents data loss.
+  - Developed products to customer specifications through regular discussion about their business use case.
+  - Developing a multi-agent system using RAG for a schools to provide control and visibility into student learning.
+  - Secured client data by constructing company systems in compliance with OWASP Top 10.
 - DataAnnotation: AI training contractor focused on code review, evaluation criteria, and quality assurance for AI-generated responses.
 
 ## Project Summary
 
-- Pump Pal: React Native and Expo workout tracker using Firebase and Gemini API for workout insights.
+- Timber — React Native, Expo, Firebase, Typescript — 2026 – Present:
+  - Currently submitting my mobile-first workout app to the iOS and the Android app stores.
+  - Architected my app around minimizing user interaction, having workouts auto-fill dynamically.
+  - Made data portable and consent-gated: users have data export on demand, with AI and social features being exclusively opt-in.
+- Moneyball — Kotlin, Spring Boot, Jupyter Notebook, React — 2026 – Present:
+  - Simplified complex analytics from the official MLB and Statcast APIs to describe behaviours in plain English instead of overwhelming users with numerical KPIs they do not understand.
+  - Originally built as a Jupyter Notebook then expanded into a self-hosted Spring Boot service.
+  - Processed .csv files with 120+ fields with 500+ records for each game to evaluate at a pitch-by-pitch level.
+  - A daily scheduled task collects season data, aggregating player and team overviews for expected leaderboards and standings.
 - Custom Enterprise Databasing System: Next.js, Supabase, and TypeScript system for maintenance tickets, role-based login, and production reliability.
 - Rock Paper Scissors: Next.js and TypeScript strategy/prediction project.
 - Am I Cooked: React and TypeScript job-search readiness tool using Gemini-powered feedback.

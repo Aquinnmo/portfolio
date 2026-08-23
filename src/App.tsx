@@ -101,7 +101,11 @@ function App() {
 
       <div className="route-transition-veil" aria-hidden="true" />
       <div className="route-content">
-        {route === 'foundry' ? <FoundryPage /> : <PortfolioPage />}
+        {route === 'foundry' ? (
+          <FoundryPage onNavigateToPortfolio={() => navigateToRoute('portfolio', '/')} />
+        ) : (
+          <PortfolioPage />
+        )}
 
         {route === 'foundry' ? <FoundryFooter /> : <SiteFooter />}
       </div>

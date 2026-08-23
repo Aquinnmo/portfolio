@@ -38,11 +38,7 @@
   border-radius: 1.2rem;
   padding: var(--switcher-padding);
   background-color: var(--switcher-theme-surface);
-  box-shadow:
-    0 1.15rem 2.4rem color-mix(in srgb, var(--color-shadow) 72%, transparent),
-    0 0 1.6rem color-mix(in srgb, var(--switcher-theme-glow) 42%, transparent),
-    inset 0 0.04rem 0 color-mix(in srgb, var(--switcher-theme-accent-strong) 13%, transparent),
-    inset 0 -0.75rem 1.8rem color-mix(in srgb, var(--switcher-theme-accent) 10%, transparent);
+  box-shadow: 0 1.15rem 2.4rem color-mix(in srgb, var(--color-shadow) 72%, transparent);
   transform: translateX(-50%);
   isolation: isolate;
   backdrop-filter: blur(18px);

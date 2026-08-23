@@ -37,10 +37,6 @@
   letter-spacing: -0.045em;
 }
 
-.foundry-founder-header .foundry-section-eyebrow {
-  margin: 0.85rem 0 0;
-}
-
 .foundry-founder-layout {
   display: grid;
   width: min(100%, 58rem);
@@ -99,6 +95,12 @@
   margin: 0;
   color: var(--color-text-muted);
   font-size: clamp(1.05rem, 2vw, 1.22rem);
+}
+
+.foundry-founder-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
 }
 
 .foundry-founder-strengths {
