@@ -17,22 +17,6 @@
   view-transition-name: project-card;
 }
 
-.project-visual-icon {
-  width: min(52%, 9rem);
-  min-width: 5.5rem;
-  height: auto;
-  object-fit: contain;
-  filter: drop-shadow(0 0 1.2rem color-mix(in srgb, var(--color-frost) 34%, transparent));
-}
-
-.project-visual-icon--svg {
-  fill: none;
-  stroke: var(--color-ice-strong);
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke-width: 2.8;
-}
-
 .project-focus-mark {
   display: grid;
   place-items: center;
@@ -96,6 +80,9 @@
   box-shadow: 0 0.55rem 1.2rem color-mix(in srgb, var(--color-shadow) 42%, transparent);
   cursor: pointer;
   backdrop-filter: blur(18px);
+  /* Full-bleed art hides the background, so the active tile is marked with a
+     ring and by dimming the others rather than by a background change. */
+  opacity: 0.55;
   transition:
     box-shadow 160ms ease,
     color 160ms ease,
@@ -103,30 +90,26 @@
     transform 160ms ease;
 }
 
-.project-icon-card:disabled {
-  cursor: default;
-}
-
-.project-icon-card .project-visual-icon {
-  width: 70%;
-  height: 70%;
-  min-width: auto;
+/* The project art fills the tile; the button's own radius + overflow:hidden
+   clip the opaque squares (timber, rps), so the img sets no radius of its own. */
+.project-icon-card .project-png-mark {
+  width: 100%;
+  height: 100%;
+  max-height: none;
+  border-radius: 0;
   filter: none;
 }
 
-.project-icon-card .project-visual-icon--svg {
-  stroke-width: 3.2;
-}
-
 .project-icon-card[data-project-icon-active='true'] {
-  background: linear-gradient(135deg, color-mix(in srgb, var(--color-panel) 78%, white 12%), color-mix(in srgb, var(--color-panel-strong) 64%, white 10%));
-  box-shadow: 0 0.6rem 1.3rem color-mix(in srgb, var(--color-shadow) 46%, transparent);
+  opacity: 1;
+  box-shadow:
+    0 0 0 2px var(--color-link),
+    0 0.6rem 1.3rem color-mix(in srgb, var(--color-shadow) 46%, transparent);
 }
 
-.project-icon-card:hover:not([data-project-icon-active='true']):not(:disabled),
+.project-icon-card:hover:not([data-project-icon-active='true']),
 .project-icon-card:focus-visible:not([data-project-icon-active='true']) {
-  color: var(--color-link-hover);
-  background: linear-gradient(135deg, color-mix(in srgb, var(--color-panel) 82%, white 8%), color-mix(in srgb, var(--color-panel-strong) 68%, white 6%));
+  opacity: 1;
   box-shadow: 0 0.55rem 1.2rem color-mix(in srgb, var(--color-shadow) 42%, transparent);
   transform: translateY(-3px);
 }
