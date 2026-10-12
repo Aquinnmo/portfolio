@@ -1,0 +1,235 @@
+%-------------------------
+% Resume in Latex
+% Author : Adam Montgomery
+% Based off of: https://github.com/sb2nov/resume
+% License : MIT
+%------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\input{glyphtounicode}
+
+
+%----------FONT OPTIONS----------
+% sans-serif
+% \usepackage[sfdefault]{FiraSans}
+% \usepackage[sfdefault]{roboto}
+% \usepackage[sfdefault]{noto-sans}
+% \usepackage[default]{sourcesanspro}
+
+% serif
+% \usepackage{CormorantGaramond}
+% \usepackage{charter}
+
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+% Ensure that generate pdf is machine readable/ATS parsable
+\pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & #2 \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+%----------HEADING----------
+% \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+%   \textbf{\href{http://sourabhbajaj.com/}{\Large Sourabh Bajaj}} & Email : \href{mailto:sourabh@sourabhbajaj.com}{sourabh@sourabhbajaj.com}\\
+%   \href{http://sourabhbajaj.com/}{http://www.sourabhbajaj.com} & Mobile : +1-123-456-7890 \\
+% \end{tabular*}
+
+\begin{center}
+    \textbf{\Huge \scshape Adam Montgomery} \\ \vspace{1pt}
+    \small (705) 241 8520 $|$ 
+    \href{mailto:amontg04@uoguelph.ca}{\underline{amontg04@uoguelph.ca}} $|$ 
+    \href{https://adam-montgomery.ca/}{\underline{adam-montgomery.ca}} $|$
+    \href{https://linkedin.com/in/adam-montgomery-ca}{\underline{LinkedIn}} $|$
+    \href{https://github.com/Aquinnmo}{\underline{GitHub}}
+\end{center}
+
+
+%-----------EXPERIENCE-----------
+\section{Experience}
+  \resumeSubHeadingListStart
+    % \resumeSubheading
+    %   {Fullstack Software Engineering Co-op}{Sept 2026 - Dec 2026}
+    %   {\href{https://www.linkedin.com/company/textnow/}{TextNow}}{Waterloo, ON}
+    %   \resumeItemListStart
+    %     \resumeItem{I have not started this position yet.}
+    %   \resumeItemListEnd
+    \resumeSubheading
+      {Software Engineering Co-op}{May 2026 -- Aug 2026}
+      {\href{https://www.linkedin.com/company/sps-commerce/}{SPS Commerce}}{Brampton, ON}
+      \resumeItemListStart
+        \resumeItem{Implemented the entire feature lifecycle for a multi-pipeline deployment assistant \textbf{Slack app} integrating \textbf{Jira} and \textbf{Azure DevOps}, from the planning phase through completion, then defined a \textbf{roadmap for future iterations}.}
+        % \resumeItem{Owned a multi-pipeline deployment assistant from a one-line spec through the mock, design, and production release; the Slack app unifies Jira and Azure DevOps actions and is in daily use by 7 engineers. Scoped V2 to extend self-service deploys to 5 additional engineering teams.}
+        \resumeItem{Refactored to standardize caching of auth credentials platform-wide to use \textbf{Redis} and \textbf{encryption by default}.}
+        \resumeItem{\textbf{Cut support time by 60\%} through a support agent built on \textbf{AWS Bedrock}, \textbf{LangChain}, and a custom \textbf{context management solution}.}
+        \resumeItem{Extended the \textbf{support agent} with custom \textbf{MCP Tools}, enhancing data access for customers and developers.}
+        \resumeItem{Created a reusable library for 11 existing and future services by \textbf{refactoring} a mono-repo into distinct \textbf{modules}.}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {President, Owner, \& Lead Developer}{2025 -- Present}
+      {\href{https://adam-montgomery.ca/foundry}{Montgomery Software Foundry Inc.}}{Barrie, ON}
+      \resumeItemListStart
+        \resumeItem{Founded a company to sell a \textbf{custom SaaS solution} to a wheelchair accessible transit company in the GTA.}
+        \resumeItem{Updated a paper and Excel-based system to an online workflow using \textbf{Postgres} that \textbf{prevents data loss}.}
+        \resumeItem{Developed products to \textbf{customer specifications} through regular discussion about their business use case.}
+        \resumeItem{Developing a \textbf{multi-agent} system using \textbf{RAG} for a schools to provide control and visibility into student learning.}
+        \resumeItem{\textbf{Secured client data} by constructing company systems in compliance with \textbf{OWASP Top 10}.}
+    \resumeItemListEnd
+      
+% -----------Multiple Positions Heading-----------
+%    \resumeSubSubheading
+%     {Software Engineer I}{Oct 2014 - Sep 2016}
+%     \resumeItemListStart
+%        \resumeItem{Apache Beam}
+%          {Apache Beam is a unified model for defining both batch and streaming data-parallel processing pipelines}
+%     \resumeItemListEnd
+%    \resumeSubHeadingListEnd
+%-------------------------------------------
+
+  \resumeSubHeadingListEnd
+
+
+%-----------PROJECTS-----------
+\section{Projects}
+    \resumeSubHeadingListStart
+        \resumeProjectHeading
+          {\textbf{Timber} $|$ \href{https://apps.apple.com/us/app/timber-workout-companion/id6819100210}{\underline{App Store}} $|$ \href{https://play.google.com/store/apps/details?id=com.aquinnmo.timber}{\underline{Play Store}} $|$ \emph{React Native, Expo, Firebase, Typescript}}{2026 -- Present}
+          \resumeItemListStart
+            \resumeItem{Created a mobile-first workout app published to the \textbf{iOS} and the \textbf{Android} app stores.}
+            \resumeItem{Architected my app around \textbf{minimizing user interaction}, having workouts \textbf{auto-fill dynamically}.}
+            \resumeItem{Made data portable and consent-gated: users have \textbf{data export} on demand, with AI and social \textbf{features being exclusively opt-in}.}
+            \resumeItem{Designed advanced analytics and a detailed exercise catalog using \textbf{LLMs} and \textbf{decision models} to show user progress \textbf{heatmaps} and help injury prevention.}
+          \resumeItemListEnd
+        % \resumeProjectHeading
+        %   {\textbf{Chatty Kathy} $|$ \emph{Python, LangGraph, LangChain, Next.js}}{2026}
+        %   \resumeItemListStart
+        %     \resumeItem{}
+        %   \resumeItemListEnd
+          \resumeProjectHeading {\href{https://moneyball.adam-montgomery.ca/}{\textbf{Moneyball}} $|$ \emph{Kotlin, Spring Boot, Jupyter Notebook, React}}{2026 -- Present}
+          \resumeItemListStart
+            \resumeItem{Simplified complex analytics from the official MLB and Statcast APIs to \textbf{describe behaviours} in plain English instead of overwhelming users with numerical \textbf{KPIs} they do not understand.}
+            \resumeItem{Originally built as a \textbf{Jupyter Notebook} then expanded into a \textbf{self-hosted Spring Boot} service.}
+            \resumeItem{Processed \textbf{.csv files with 120+ fields with 500+ records} for each game to evaluate at a pitch-by-pitch level.}
+            \resumeItem{A daily \textbf{scheduled task} collects season data, aggregating player and team overviews for expected standings.}
+          \resumeItemListEnd
+    \resumeSubHeadingListEnd
+
+    
+%-----------EDUCATION-----------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {University of Guelph}{Guelph, ON}
+      {Bachelor of Computing in Computer Science, Minor in Business - 88.2 GPA}{2024 -- Present}
+    \resumeItem{Society of Computing and Information Science, Guelph Cyber Security Society, Guelph Google Developer Student Club, Guelph Gryphons Event Staff (Mascot), Lettuce Club, Intramurals (Hockey, Squash, Flag Football, Pickleball, Softball)}
+  \resumeSubHeadingListEnd
+
+%
+%-----------PROGRAMMING SKILLS-----------
+\section{Skills}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     \textbf{Programming Languages}{: Kotlin, Python, TypeScript, Java, Ruby, C, Assembly} \\
+     \textbf{Frameworks}{: React, React Native, Spring Boot, Expo, Next.js, Rails, Kotlin Multiplatform, Vite}
+      \\
+     \textbf{Tools}{: AWS, Azure DevOps, Firebase, GitHub, Kubernetes, Vercel, SumoLogic, Docker, Supabase, PostGres}
+     \\
+     \textbf{Other}{: CI/CD, REST APIs, Agile, Git, SQL, Code Review, Microservices, OOP, Unit Testing, Pandas, AI}}}
+     \\
+     \textbf{AI}{: OpenClaw, Responses API, LangChain, Claude, Codex, Gemini, Ollama, Jev, full duplex models}
+ \end{itemize}
+
+
+\section{Volunteering \& Awards}
+    \resumeSubHeadingListStart
+    \resumeProjectHeading
+          {\textbf{\href{https://movember.com/m/adam-montgomery?mc=1}{Movember}} $|$ \emph{Raised \$3,555 over 8 years }}{2018 -- Present}
+      \resumeProjectHeading
+          {\textbf{Mascot} $|$ \emph{The Country Day High School}}{2022 -- 2024}
+      \resumeProjectHeading
+          {\textbf{Vice President of External Affairs} $|$ \emph{SOCIS, Guelph}}{2025 -- 2026}
+      \resumeProjectHeading
+          {\textbf{Valedictorian} $|$ \emph{Class of 100+}}{2024}
+      \resumeProjectHeading
+          {\textbf{4x Dean's List} $|$ \emph{Achieved every completed term for my degree}}{2024 -- 2026}
+    \resumeSubHeadingListEnd
+
+%-------------------------------------------
+\end{document}

@@ -73,14 +73,11 @@ const projects: Project[] = [
       'Architected my app around minimizing user interaction, having workouts auto-fill dynamically.',
       'Made data portable and consent-gated: users have data export on demand, with AI and social features being exclusively opt-in.',
     ],
-    stack: ['React Native', 'Expo', 'Firebase', 'TypeScript', 'Cloudflare'],
+    stack: ['React Native', 'Expo', 'Firebase', 'Cloudflare'],
     links: [
       { label: 'Web Preview', href: 'https://pump.adam-montgomery.ca' },
-      {
-        label: 'Android APK',
-        href: 'https://expo.dev/accounts/aquinnmo/projects/pump-pal/builds/f3f89684-df21-4f9c-af2c-ad3c53cdbd48',
-      },
-      { label: 'Repository', href: 'https://github.com/Aquinnmo/pump-pal' },
+      { label: 'App Store', href: '' },
+      { label: 'Play Store', href: '' },
     ],
   },
   {
