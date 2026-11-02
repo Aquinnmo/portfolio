@@ -33,12 +33,11 @@ This site is intended to help recruiters, hiring managers, and technical reviewe
 
 ## Project Summary
 
-- Timber — React Native, Expo, Firebase, Typescript — 2026 – Present:
-  - Published my mobile-first workout app to Google Play with an open iOS beta on TestFlight, shipping 12 releases in its first month.
+- Timber — React Native, Expo, Firebase, Cloudflare — 2026 – Present:
+  - Published my mobile-first workout app to Google Play with an open iOS beta on TestFlight.
   - Architected my app around minimizing user interaction, having workouts auto-fill dynamically and sets logged from the Lock Screen, Dynamic Island, or Android live notification.
   - Made data portable and consent-gated: users have data export on demand, with AI and social features being exclusively opt-in.
-  - Computed muscle workload and estimated 1RM trends in code first, so optional AI insights only interpret finished data to help prevent injury.
-  - Links: https://timber.adam-montgomery.ca, Google Play https://play.google.com/store/apps/details?id=com.aquinnmo.timber, iOS open beta https://testflight.apple.com/join/6J2yMDA9
+  - Links: website https://timber-app.ca, Google Play https://play.google.com/store/apps/details?id=com.aquinnmo.timber, iOS beta https://testflight.apple.com/join/6J2yMDA9
 - Moneyball — Kotlin, Spring Boot, Jupyter Notebook, React — 2026 – Present:
   - Simplified complex analytics from the official MLB and Statcast APIs to describe behaviours in plain English instead of overwhelming users with numerical KPIs they do not understand.
   - Originally built as a Jupyter Notebook then expanded into a self-hosted Spring Boot service.
