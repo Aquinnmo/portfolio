@@ -27,6 +27,14 @@ export type FoundryCaseStudy = {
   outcome: string
 }
 
+export type FoundryProduct = {
+  name: string
+  tagline: string
+  status: string
+  description: string
+  links: FoundryAction[]
+}
+
 export type FoundryFounderContent = {
   title: string
   description: string
@@ -76,6 +84,31 @@ export const caseStudy: FoundryCaseStudy = {
     'The new digital workflow reduces manual handling, prevents data loss, and makes everyday information easier to manage.',
 }
 
+export const product: FoundryProduct = {
+  name: 'Timber',
+  tagline: 'Know your own strength.',
+  status: 'Live on Google Play · Open beta on iOS',
+  description:
+    'A workout tracker built to stay out of the way. Workouts auto-fill from your last session, sets log from the Lock Screen or a live notification, and your history turns into clear progress and workload insights.',
+  links: [
+    {
+      label: 'Download for Android',
+      href: 'https://play.google.com/store/apps/details?id=com.aquinnmo.timber',
+      variant: 'primary',
+    },
+    {
+      label: 'Download the iOS Beta',
+      href: 'https://testflight.apple.com/join/6J2yMDA9',
+      variant: 'secondary',
+    },
+    {
+      label: 'Visit Website',
+      href: 'https://timber-app.ca',
+      variant: 'secondary',
+    },
+  ],
+}
+
 export const services: FoundryService[] = [
   {
     title: 'Legacy System Modernization',
@@ -92,11 +125,11 @@ export const services: FoundryService[] = [
     outcome: 'Purpose-built software for the operations that off-the-shelf tools do just can\'t do.',
   },
   {
-    title: 'Operational Dashboards',
+    title: 'Low-Friction Mobile Apps',
     description:
-      'Turn scattered business data into clear dashboards that make performance and priorities easy to track.',
-    problem: 'For owners and operators who need status, exceptions, and priorities visible without hunting through files.',
-    outcome: 'A clearer operating picture for owners who need to scan status, priorities, and risk quickly.',
+      'iOS and Android apps built the way we built Timber: pre-fill everything we can, confirm it with one tap, and never record a guess.',
+    problem: 'For tools that people give up on because every entry takes too many taps, too much typing, or too much thought.',
+    outcome: 'An app people keep using, with data you can trust and AI that stays opt-in and works only from real records.',
   },
 ]
 

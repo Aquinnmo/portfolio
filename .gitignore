@@ -31,3 +31,11 @@ dist-ssr
 *.db
 .beads-credential-key
 .beads/proxieddb/
+
+# LaTeX build output
+resume/*.aux
+resume/*.out
+resume/*.fls
+resume/*.fdb_latexmk
+resume/*.synctex.gz
+resume/*.pdf

@@ -3,6 +3,7 @@ import { FoundryDifferentiatorsSection } from './foundry/FoundryDifferentiatorsS
 import { FoundryFounderSection } from './foundry/FoundryFounderSection'
 import { FoundryHeroSection } from './foundry/FoundryHeroSection'
 import { FoundryProcessSection } from './foundry/FoundryProcessSection'
+import { FoundryProductSection } from './foundry/FoundryProductSection'
 import { FoundryServicesSection } from './foundry/FoundryServicesSection'
 import './styling/FoundryPage.css'
 import './styling/layout.css'
@@ -13,6 +14,7 @@ export function FoundryPage({ onNavigateToPortfolio }: { onNavigateToPortfolio: 
       <FoundryHeroSection />
       <FoundryServicesSection />
       <FoundryCaseStudySection />
+      <FoundryProductSection />
       <FoundryDifferentiatorsSection />
       <FoundryProcessSection />
       <FoundryFounderSection onNavigateToPortfolio={onNavigateToPortfolio} />

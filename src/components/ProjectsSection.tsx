@@ -57,7 +57,7 @@ function ProjectLinkIcon({ link }: { link: ProjectLink }) {
     return <img className="project-link-icon" src={pdfIcon} alt="" aria-hidden="true" />
   }
 
-  if (link.label.toLowerCase().includes('android')) {
+  if (link.label.toLowerCase().includes('download')) {
     return <DownloadIcon />
   }
 
@@ -69,18 +69,15 @@ const projects: Project[] = [
     name: 'Timber',
     icon: timberIcon,
     proof: [
-      'Currently submitting my mobile-first workout app to the iOS and the Android app stores.',
-      'Architected my app around minimizing user interaction, having workouts auto-fill dynamically.',
+      'Published my mobile-first workout app to Google Play with an open iOS beta on TestFlight.',
+      'Architected my app around minimizing user interaction, having workouts auto-fill dynamically and sets logged from the Lock Screen, Dynamic Island, or Android live notification.',
       'Made data portable and consent-gated: users have data export on demand, with AI and social features being exclusively opt-in.',
     ],
-    stack: ['React Native', 'Expo', 'Firebase', 'TypeScript', 'Cloudflare'],
+    stack: ['React Native', 'Expo', 'Firebase', 'Cloudflare'],
     links: [
-      { label: 'Web Preview', href: 'https://pump.adam-montgomery.ca' },
-      {
-        label: 'Android APK',
-        href: 'https://expo.dev/accounts/aquinnmo/projects/pump-pal/builds/f3f89684-df21-4f9c-af2c-ad3c53cdbd48',
-      },
-      { label: 'Repository', href: 'https://github.com/Aquinnmo/pump-pal' },
+      { label: 'View website', href: 'https://timber-app.ca' },
+      { label: 'Download for Android', href: 'https://play.google.com/store/apps/details?id=com.aquinnmo.timber' },
+      { label: 'Download the iOS Beta', href: 'https://testflight.apple.com/join/6J2yMDA9' },
     ],
   },
   {

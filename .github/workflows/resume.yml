@@ -1,0 +1,29 @@
+name: resume
+
+on:
+  push:
+    branches: [main]
+    paths: [resume/**]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: xu-cheng/latex-action@v3
+        with:
+          root_file: resume.tex
+          working_directory: resume
+
+      - name: Commit PDF
+        run: |
+          cp resume/resume.pdf src/assets/portfolio/adam_montgomery_resume.pdf
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/assets/portfolio/adam_montgomery_resume.pdf
+          git diff --cached --quiet || (git commit -m "Build resume PDF" && git push)
